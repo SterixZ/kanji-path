@@ -212,6 +212,8 @@ sentence_text='''私は学生です。|わたしはがくせいです。|I am a 
 sentences=[]
 for i,line in enumerate(sentence_text.splitlines()):
  text,reading,en,target,kana_reading=line.split('|');sentences.append(dict(id=f's-{i}',char=text,reading=reading,meanings=[en],target=target,targetReading=kana_reading,kind='sentence',on=[],kun=[]))
-for name,value in [('kanji',kanji),('kana',kana),('strokes',strokes),('vocab',vocab),('sentences',sentences)]:
+for name,value in [('kanji',kanji),('kana',kana),('strokes',strokes),('sentences',sentences)]:
  (OUT/f'{name}.json').write_text(json.dumps(value,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 print(json.dumps(dict(kanji=len(kanji),kana=len(kana),vocabulary=len(vocab),sentences=len(sentences),stroke_sets=len(strokes),missing_strokes=[k['char'] for k in kanji+kana if k['char'] not in strokes])))
+from runpy import run_path
+run_path(str(ROOT/'scripts'/'build-vocab.py'))['build']()

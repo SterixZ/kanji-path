@@ -1,4 +1,13 @@
 export const DAY=86400000;
+// Level collections are independent sets, not cumulative exam syllabuses.
+export function filterVocabulary(words,filter='all',query=''){
+  let list=words;
+  if(/^n[1-5]$/.test(filter))list=list.filter(k=>k.jlpt===Number(filter.slice(1)));
+  else if(filter==='core')list=list.filter(k=>k.core);
+  else if(filter!=='all')list=list.filter(k=>k.topic===filter);
+  const q=query.trim().toLowerCase();
+  return q?list.filter(k=>[k.char,k.reading,k.roman,...k.meanings,...(k.otherForms||[]),...(k.otherReadings||[])].filter(Boolean).some(t=>t.toLowerCase().includes(q))):list;
+}
 export function localDay(time=Date.now()){const d=new Date(time);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
 // A compact SM-2-style scheduler. Progress is independent for each practice mode.
 export function schedule(previous={},rating,now=Date.now()){

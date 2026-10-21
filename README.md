@@ -18,11 +18,59 @@ offline browser use after a complete first visit. Use browser installation
 or Add to Home Screen where supported. Opening index.html directly from the
 filesystem will not load data because browsers restrict file fetches.
 
+## Deploy to Vercel
+
+The included `vercel.json` serves `dist/` as a static website with no install
+or build step. `.vercelignore` excludes downloaded upstream archives, local
+scripts, Git metadata, and the separate Sites hosting configuration.
+
+Use the official Vercel CLI, sign in with your own account, explicitly link
+the intended Vercel project and team, and verify that link with
+`vercel project inspect --non-interactive` before deploying with
+`vercel deploy --prod`. Project linking is local to this directory and is
+excluded from Git. No environment variables or server credentials are needed
+by the study app itself.
+
+### Publish future updates
+
+After editing this app, run this command from the project directory:
+
+```sh
+npm run deploy
+```
+
+It runs the tests and JavaScript checks, verifies the existing Vercel account
+and project link, publishes production, and compares all live application files
+with the local update. Success is reported only after the public site serves
+the expected files. It always updates https://kanji-path-study.vercel.app.
+It also removes the retired kanji-path-sterix-z.vercel.app alias if Vercel
+automatically recreates it during a production deployment.
+The command uses the pinned official Vercel CLI; sign in with `vercel login`
+if the account session expires. A missing or changed project link stops the
+command rather than creating another deployment project.
+
+Codex project instructions make this publication step part of future requested
+app changes. Merely saving local files does not trigger a deployment; for edits
+you make yourself, run the command above. No file watcher, Git integration,
+or background automation is configured.
+
+Learners receive new files when they reopen or reload the online app; the
+service worker uses network-first fetching and keeps cached files available
+offline. Updates at the same URL preserve profiles and study progress.
+
+Progress is separate for each website address. Export a backup from the old
+site and import it into the Vercel site if you want to move existing progress.
+
 ## Included
 
 - 2,136 Jōyō kanji with meanings, readings, grade, stroke count, and estimated JLPT.
 - 46 basic hiragana and 46 basic katakana, with stroke paths for all 2,228 characters.
-- 127 beginner words in 10 topics, and 40 original sentences with cloze questions.
+- 7,811 graded vocabulary entries: N5 674, N4 630, N3 1,659, N2 1,778, N1 3,070.
+- All 127 original beginner cards and 10 topics preserved, including 13 extra words/readings
+  outside the graded lists: 7,824 vocabulary cards total.
+- N5–N1 collections for guided lessons, flashcards and listening; library level filters
+  and search by Japanese, readings, romaji, alternate forms and English meanings.
+- 40 original beginner sentences with cloze questions.
 - Guided lessons: explore, listen, write, then recall.
 - Separate handwriting, flashcard, listening, and sentence practice sessions.
 - Adaptive local SM-2-style review scheduling, tracked separately for each skill.
@@ -73,7 +121,8 @@ and phone layouts, library filtering, lesson flow, writing, profiles and backup.
    scripts/kanji-source.json, and download
    https://codeload.github.com/KanjiVG/kanjivg/zip/refs/heads/master into
    scripts/kanjivg.zip. Keep corresponding licence notices.
-2. Run `python scripts/build-data.py`. Official XML supplies the current school
+2. First fetch the pinned vocabulary snapshot with `python scripts/build-vocab.py --download`
+   (see below). Run `python scripts/build-data.py`. Official XML supplies the current school
    grades, meanings and readings. The JSON conversion supplies only estimated
    JLPT groupings. All WaniKani fields are excluded. The script selects school
    grades 1–6 and 8 and retains ordered SVG stroke paths. Diagram stroke counts
@@ -85,10 +134,33 @@ and phone layouts, library filtering, lesson flow, writing, profiles and backup.
 4. Update the displayed data snapshot date, increment the service-worker cache
    version in dist/sw.js and dist/app.js, rerun tests, and republish dist/.
 
+### Vocabulary snapshot
+
+Run `python scripts/build-vocab.py --download` to fetch and build the pinned OpenJLPT
+revision recorded in the script. Subsequent `python scripts/build-vocab.py` runs
+rebuild from the ignored `scripts/openjlpt-source/` snapshot. To update upstream,
+review and change the pinned revision, download again, check the licence/notices
+and data changes, update count assertions, bump the offline cache version and deploy.
+
+`scripts/vocab-core.json` retains the original 127 CC0 cards. Exact word/reading
+matches (treating hiragana/katakana readings equivalently) retain their original
+IDs, topics and glosses. New cards use the frozen OpenJLPT source ID with a prefix.
+Other original cards remain available in the beginner collection. Homographs with
+different readings stay separate. Level sets are independent, not cumulative;
+levels are unofficial study estimates, not an official exam syllabus.
+
+The app bundles vocabulary fields only, without OpenJLPT examples or grammar.
+`dist/data/vocab-meta.json` records the pinned revision, upstream versions, source
+hashes, counts and modifications. Raw snapshots are excluded from Git, deployments
+and the portable source ZIP. The adapted JSON, licence and attribution notices
+are available offline and through the app’s Sources screen.
+
 ## Licensing
 
 Application: MIT (LICENSE). Kanji meanings/readings: copyright Jim Breen and
 EDRDG, CC BY-SA 4.0, via David Luz Gouveia's MIT JSON conversion. Stroke data:
 copyright Ulrich Apel and contributors, KanjiVG CC BY-SA 3.0. Basic kana tables,
-original vocabulary entries and practice sentences: CC0. See dist/credits.html
+original vocabulary entries and practice sentences: CC0. Expanded vocabulary:
+OpenJLPT contributors, Jonathan Waller’s lists and JMdict (EDRDG), CC BY-SA 4.0;
+the combined adapted vocabulary dataset remains CC BY-SA 4.0. See dist/credits.html
 and Settings → Sources for full attribution and source/download links.

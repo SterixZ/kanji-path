@@ -2,5 +2,10 @@ artifacts/
 scripts/kanji-source.json
 scripts/kanjivg.zip
 scripts/kanjidic2.xml.gz
+scripts/openjlpt-source/
 node_modules/
+.vercel/
 *.log
+
+.vercel
+.env*

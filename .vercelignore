@@ -1,0 +1,8 @@
+.git/
+.openai/
+.vercel/
+.env*
+node_modules/
+scripts/
+artifacts/
+*.log
