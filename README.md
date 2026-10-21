@@ -83,6 +83,11 @@ site and import it into the Vercel site if you want to move existing progress.
   Words without a bundled example show an explicit empty state.
 - Separate handwriting, flashcard, listening, and sentence practice sessions.
 - Adaptive local SM-2-style review scheduling, tracked separately for each skill.
+- Test yourself tab: quizzes from previously answered material, with category/JLPT
+  filters, scores, answer review and retrying missed questions. Includes kanji meanings,
+  vocabulary meanings/readings, kana sounds and sentence gaps.
+- Up to 30 recent test scores per learner, included in backups. Practice review
+  schedules are independent of test scores. Browsing alone does not mark an item studied.
 - Activity history, daily goal, streak and collection progress.
 - Up to 50 local participant profiles; JSON backup export and validated restore.
 - Japanese browser text-to-speech, adjustable voice and speed.
