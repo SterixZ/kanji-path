@@ -1,9 +1,12 @@
-export const TEST_CATEGORIES={all:'All studied material',kanji:'Kanji',vocab:'Vocabulary',kana:'Kana',sentences:'Sentences'};
-export const materialCategory=item=>!item.kind?'kanji':item.kind==='vocab'?'vocab':['hiragana','katakana'].includes(item.kind)?'kana':item.kind==='sentence'?'sentences':null;
+export const TEST_CATEGORIES={all:'All studied material',kanji:'Kanji',vocab:'Vocabulary',kana:'Kana',sentences:'Sentences',grammar:'Grammar'};
+export const materialCategory=item=>!item.kind?'kanji':item.kind==='vocab'?'vocab':['hiragana','katakana'].includes(item.kind)?'kana':item.kind==='sentence'?'sentences':item.kind==='grammar'?'grammar':null;
 
-export function studiedMaterials(cards,items,{category='all',level='all'}={}){
+export function studiedMaterials(cards,items,{category='all',level='all',itemIds=null}={}){
   const studied=new Set(Object.entries(cards||{}).filter(([key,card])=>['flash','write','listen','context'].includes(key.split(':')[0])&&Number(card?.reviews)>0).map(([key])=>key.split(':').slice(1).join(':')));
-  return items.filter(item=>studied.has(item.id)&&materialCategory(item)&&(category==='all'||materialCategory(item)===category)&&(level==='all'||item.jlpt===Number(level)));
+  // Validated notebook entries also prove an item was answered, including old
+  // backups whose retained history outlives the corresponding review card.
+  if(itemIds)for(const id of itemIds)studied.add(id);
+  return items.filter(item=>studied.has(item.id)&&(!itemIds||itemIds.includes(item.id))&&materialCategory(item)&&(category==='all'||materialCategory(item)===category)&&(level==='all'||item.jlpt===Number(level)));
 }
 
 export function shuffleQuestions(list,random=Math.random){
@@ -17,14 +20,23 @@ const meanings=item=>(item.meanings||[]).flatMap(m=>m.split(';')).map(m=>normali
 const readings=item=>[item.reading,...(item.otherReadings||[])].map(normalize).filter(Boolean);
 const label=(item,type)=>type==='cloze'?item.target:type==='reading'?item.reading:type==='kana'?item.roman:item.meanings?.slice(0,2).join('; ');
 
-export function buildKnowledgeTest(cards,items,{category='all',level='all',count=10}={},random=Math.random){
+export function buildKnowledgeTest(cards,items,{category='all',level='all',count=10,format='choice',vocabTask='reading',itemIds=null}={},random=Math.random){
   const limit=Number.isInteger(Number(count))?Math.min(20,Math.max(1,Number(count))):10;
-  const targets=shuffleQuestions(studiedMaterials(cards,items,{category,level}),random);
+  const targets=shuffleQuestions(studiedMaterials(cards,items,{category,level,itemIds}).filter(item=>format!=='typed'||item.kind!=='grammar'),random);
   const questions=[];
   for(const item of targets){
     const group=materialCategory(item);
-    const type=group==='sentences'?'cloze':group==='kana'?'kana':group==='vocab'&&random()<.5?'reading':'meaning';
+    const type=group==='sentences'?'cloze':group==='kana'?'kana':group==='vocab'&&(format==='typed'?vocabTask!=='meaning':random()<.5)?'reading':'meaning';
     const answer=label(item,type);if(!answer)continue;
+    if(format==='typed'){
+      const acceptedAnswers=type==='reading'?[item.reading,...(item.otherReadings||[])]:type==='meaning'?item.meanings.flatMap(m=>m.split(';')):type==='kana'?[item.roman]:[item.target];
+      questions.push({id:item.id,itemId:item.id,type,format:'typed',answer,acceptedAnswers:acceptedAnswers.filter(Boolean),options:[],
+        title:type==='reading'?'Type this word’s reading in kana.':type==='meaning'?'Type an English meaning.':type==='kana'?'Type this kana’s sound in romaji.':'Type the missing Japanese word.',
+        prompt:type==='cloze'?item.char.replace(item.target,'＿＿＿'):item.char,
+        hint:type==='cloze'?item.meanings?.[0]||'':'',reading:''});
+      if(questions.length===limit)break;
+      continue;
+    }
     const validAnswers=new Set(type==='reading'?readings(item):type==='meaning'?meanings(item):[normalize(answer)]);
     const pool=items.filter(other=>other.id!==item.id&&materialCategory(other)===group&&(group!=='kana'||other.kind===item.kind));
     const candidates=shuffleQuestions(pool.filter(other=>other.jlpt===item.jlpt),random).concat(shuffleQuestions(pool.filter(other=>other.jlpt!==item.jlpt),random));
@@ -48,11 +60,25 @@ export function buildKnowledgeTest(cards,items,{category='all',level='all',count
   return questions;
 }
 
+export function normalizeTypedAnswer(value,type){
+  let text=String(value??'').normalize('NFKC').trim().toLowerCase();
+  if(type==='reading'||type==='cloze')return text.replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-96)).replace(/\s+/g,'');
+  if(type==='kana')return text.replace(/\s+/g,'').replace(/shi/g,'si').replace(/chi/g,'ti').replace(/tsu/g,'tu').replace(/fu/g,'hu').replace(/ji/g,'zi');
+  return text.replace(/\([^)]*\)/g,'').replace(/^to\s+/,'').replace(/[.!?]+$/,'').replace(/\s+/g,' ').trim();
+}
+
+export function isCorrectAnswer(question,answer){
+  if(!answer||answer.choice==='skip')return false;
+  if(question.format!=='typed')return answer.choice===question.correctChoice;
+  const text=normalizeTypedAnswer(answer.text,question.type);
+  return !!text&&question.acceptedAnswers.some(expected=>normalizeTypedAnswer(expected,question.type)===text);
+}
+
 export function gradeKnowledgeTest(questions,answers){
   let correct=0,answered=0;const missed=[];
   for(const question of questions){
-    const answer=answers.find(answer=>answer.questionId===question.id&&(answer.choice==='skip'||question.options.some(option=>option.id===answer.choice)));
-    if(answer){answered++;if(answer.choice===question.correctChoice){correct++;continue}}
+    const answer=answers.find(answer=>answer.questionId===question.id&&(answer.choice==='skip'||(question.format==='typed'?typeof answer.text==='string':question.options.some(option=>option.id===answer.choice))));
+    if(answer){answered++;if(isCorrectAnswer(question,answer)){correct++;continue}}
     missed.push(question);
   }
   return {correct,total:questions.length,answered,percent:questions.length?Math.round(correct/questions.length*100):0,missed};

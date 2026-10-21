@@ -1,7 +1,8 @@
 import {validateTestHistory} from './assessment.js';
+import {migrateMistakes} from './mistakes.js';
 export const DAY=86400000;
 export function canWrite(item,strokes={}){
-  return !!item&&item.kind!=='vocab'&&item.kind!=='sentence'&&!!strokes[item.char]?.length;
+  return !!item&&!['vocab','sentence','grammar'].includes(item.kind)&&!!strokes[item.char]?.length;
 }
 export function lessonSteps(item,strokes={}){
   return ['explore','guided-listen',...(canWrite(item,strokes)?['write']:[]),'flash'];
@@ -79,5 +80,5 @@ export function validateBackup(data,validIds){
   return data.profiles.map(p=>{if(typeof p.id!=='string'||p.id.length>80||seen.has(p.id)||typeof p.name!=='string'||!p.name.trim()||p.name.length>60)throw new Error('Invalid learner profile.');seen.add(p.id);
     const cards={};for(const [key,c] of Object.entries(p.cards||{})){const [mode,...parts]=key.split(':');if(!['flash','write','listen','context'].includes(mode)||!validIds.has(parts.join(':')))continue;if(!c||!['due','last','reps','interval','ease','reviews','lapses'].every(f=>Number.isFinite(c[f])&&c[f]>=0)||c.ease<1.3||c.ease>10||c.interval>100000||c.due>8640000000000000)throw new Error('Invalid review data.');cards[key]=Object.fromEntries(['due','last','reps','interval','ease','reviews','lapses'].map(k=>[k,c[k]]));}
     const history=(Array.isArray(p.history)?p.history:[]).slice(-10000).filter(h=>h&&Number.isFinite(h.at)&&Number.isFinite(h.rating)&&[0,3,4,5].includes(h.rating)&&typeof h.key==='string');
-    return {id:p.id,name:p.name.trim(),cards,history,tests:validateTestHistory(p.tests),goal:Math.min(100,Math.max(5,Number(p.goal)||10)),created:Number(p.created)||Date.now()};});
+    return {id:p.id,name:p.name.trim(),cards,history,tests:validateTestHistory(p.tests),mistakes:migrateMistakes({...p,history},validIds),goal:Math.min(100,Math.max(5,Number(p.goal)||10)),created:Number(p.created)||Date.now()};});
 }

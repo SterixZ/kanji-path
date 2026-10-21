@@ -1,5 +1,33 @@
 # Kanji Path
 
+## Grammar, typed tests, and mistake notebook
+
+- Grammar lessons cover estimated N5–N1: 81 / 98 / 101 / 123 / 123 points
+  (526 total), with meanings, formation rules, notes, Japanese examples, available
+  furigana, translations, and device speech. Open a lesson from **Grammar lessons**
+  or the learning path. **Mark studied & add to reviews** enables its test questions
+  and schedules a flashcard; recall practice uses the existing review scheduler.
+- **Test yourself → Answer format → Type answers** supports vocabulary kana
+  readings or English meanings, kanji meanings, kana romaji, and sentence gaps.
+  It accepts bundled alternate readings, hiragana/katakana variants, and normalized
+  English capitalization, whitespace, trailing punctuation and infinitive “to”.
+  This is deterministic grading, not AI translation; unlisted synonyms may be
+  rejected. Grammar tests remain multiple choice and are excluded from typed tests.
+- **Mistake notebook** persists incorrect test answers, “not sure”, and practice
+  ratings of Again. Correct answers or successful practice ratings clear an item;
+  learners can also remove an entry manually. The practice button opens a test
+  restricted to unresolved mistakes, with the usual material and level filters.
+- Mistakes and grammar progress stay separate per learner and are included in
+  version-1 backups under the existing `kanji-path-v1` storage key. Older backups
+  recover unresolved practice mistakes from retained history. Earlier test scores
+  contain no answer details, so their missed questions cannot be reconstructed.
+- Grammar is bundled from the same pinned OpenJLPT revision as vocabulary under
+  CC BY-SA 4.0. Source hashes and transformations are in
+  `dist/data/grammar-meta.json`; the full upstream notice and licence remain bundled.
+  Refresh with `python -X utf8 scripts/build-grammar.py --download`, or omit
+  `--download` to rebuild from the ignored local snapshot. The new content and
+  modules are precached for offline use (service worker cache `kanji-path-v6`).
+
 A free Japanese study app with an original interface inspired by familiar
 kanji-study workflows. No paid API, account, backend database, npm install,
 or manual card entry is required.
