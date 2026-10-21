@@ -71,7 +71,12 @@ site and import it into the Vercel site if you want to move existing progress.
 - N5–N1 collections for guided lessons, flashcards and listening; library level filters
   and search by Japanese, readings, romaji, alternate forms and English meanings.
 - 40 original beginner sentences with cloze questions.
-- Guided lessons: explore, listen, write, then recall.
+- Guided kanji/kana lessons: explore, listen, write with direction arrows, then recall.
+- Vocabulary lessons: word, meaning, listening and recall, without handwriting.
+- Clickable words in the kanji explorer open vocabulary details and sentence usage.
+- 13,730 sentence examples across 7,254 words, with English translations, available
+  furigana and source links; also accessible inside guided lessons and revealed flashcards.
+  Words without a bundled example show an explicit empty state.
 - Separate handwriting, flashcard, listening, and sentence practice sessions.
 - Adaptive local SM-2-style review scheduling, tracked separately for each skill.
 - Activity history, daily goal, streak and collection progress.
@@ -149,7 +154,16 @@ Other original cards remain available in the beginner collection. Homographs wit
 different readings stay separate. Level sets are independent, not cumulative;
 levels are unofficial study estimates, not an official exam syllabus.
 
-The app bundles vocabulary fields only, without OpenJLPT examples or grammar.
+The app bundles vocabulary fields and Tatoeba usage examples with sentence IDs and
+available furigana from the same pinned OpenJLPT snapshot. Original CC0 beginner
+sentences supplement missing examples where spelling and reading match. Grammar
+is not included. Sentence source links credit Tatoeba contributors (CC BY 2.0 FR);
+the derivative vocabulary dataset remains CC BY-SA 4.0.
+
+Vocabulary never enters handwriting practice, even for a one-character word.
+Historical vocabulary writing cards remain in backups and progress, but leave the
+daily review queue. Kanji and kana retain writing, including visible direction
+arrows that follow the actual stroke path during animation.
 `dist/data/vocab-meta.json` records the pinned revision, upstream versions, source
 hashes, counts and modifications. Raw snapshots are excluded from Git, deployments
 and the portable source ZIP. The adapted JSON, licence and attribution notices

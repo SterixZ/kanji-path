@@ -1,4 +1,40 @@
 export const DAY=86400000;
+export function canWrite(item,strokes={}){
+  return !!item&&item.kind!=='vocab'&&item.kind!=='sentence'&&!!strokes[item.char]?.length;
+}
+export function lessonSteps(item,strokes={}){
+  return ['explore','guided-listen',...(canWrite(item,strokes)?['write']:[]),'flash'];
+}
+export function availableReviews(cards,items,strokes,now=Date.now()){
+  return Object.entries(cards).filter(([key,card])=>{
+    const [mode,...id]=key.split(':'),item=items.get(id.join(':'));
+    return item&&card.due<=now&&(mode!=='write'||canWrite(item,strokes));
+  }).sort((a,b)=>a[1].due-b[1].due);
+}
+// Return text tokens, never HTML; the UI escapes every text and reading value.
+export function furiganaTokens(value){
+  const text=String(value||''),tokens=[];
+  let start=0;
+  for(const match of text.matchAll(/\{([^{}|]+)\|([^{}|]+)\}/gu)){
+    if(match.index>start)tokens.push({text:text.slice(start,match.index)});
+    tokens.push({text:match[1],reading:match[2]});
+    start=match.index+match[0].length;
+  }
+  if(start<text.length)tokens.push({text:text.slice(start)});
+  return tokens;
+}
+export function sentenceSpeech(example){
+  return example.reading||furiganaTokens(example.furigana||example.ja).map(t=>t.reading||t.text).join('');
+}
+export function strokeArrow(points,fraction=.25){
+  if(points.length<2||!points.every(p=>p.length===2&&p.every(Number.isFinite)))return null;
+  const path=resample(points,64),i=Math.min(62,Math.max(1,Math.round((Number.isFinite(fraction)?fraction:.25)*63)));
+  let before=i-1,after=i+1;
+  while(after<63&&Math.hypot(path[after][0]-path[before][0],path[after][1]-path[before][1])<.01)after++;
+  const dx=path[after][0]-path[before][0],dy=path[after][1]-path[before][1];
+  if(Math.hypot(dx,dy)<.01)return null;
+  return {x:path[i][0],y:path[i][1],angle:Math.atan2(dy,dx)*180/Math.PI};
+}
 // Level collections are independent sets, not cumulative exam syllabuses.
 export function filterVocabulary(words,filter='all',query=''){
   let list=words;
