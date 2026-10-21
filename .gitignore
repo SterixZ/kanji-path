@@ -1,0 +1,6 @@
+artifacts/
+scripts/kanji-source.json
+scripts/kanjivg.zip
+scripts/kanjidic2.xml.gz
+node_modules/
+*.log
