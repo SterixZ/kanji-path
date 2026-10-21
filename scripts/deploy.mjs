@@ -65,7 +65,14 @@ async function retireOldAddress(){
   // Vercel can automatically recreate the project/team alias on production
   // deployments. Remove it after publishing rather than only removing it once.
   await vercel(['alias','remove',retiredHostname,'--yes','--scope',target.scope,'--non-interactive']);
-  if(![404,410].includes(await status()))throw new Error('The retired website address still responds. Its removal could not be verified.');
+  let lastStatus='unavailable';
+  for(let attempt=0;attempt<5;attempt++){
+    try{lastStatus=await status();if([404,410].includes(lastStatus))return}
+    catch(error){lastStatus=error.cause?.code||error.message}
+    // Edge routing may briefly serve the previous alias after its removal.
+    if(attempt<4)await new Promise(resolve=>setTimeout(resolve,1000*2**attempt));
+  }
+  throw new Error(`The retired website address removal could not be verified (${lastStatus}).`);
 }
 
 try{
