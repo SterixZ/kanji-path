@@ -64,6 +64,10 @@ site and import it into the Vercel site if you want to move existing progress.
 ## Included
 
 - 2,136 Jōyō kanji with meanings, readings, grade, stroke count, and estimated JLPT.
+- Learning path kanji collections by estimated JLPT: N5 79, N4 166, N3 367,
+  N2 367, N1 985. The remaining 172 ungraded kanji stay available by school grade
+  and in the full library. Each level supports guided lessons, writing, flashcards,
+  listening and browsing with the matching library filter.
 - 46 basic hiragana and 46 basic katakana, with stroke paths for all 2,228 characters.
 - 7,811 graded vocabulary entries: N5 674, N4 630, N3 1,659, N2 1,778, N1 3,070.
 - All 127 original beginner cards and 10 topics preserved, including 13 extra words/readings
