@@ -1,5 +1,27 @@
 # Kanji Path
 
+## Practical study interface
+
+- The Study screen shows due reviews and a daily progress bar, with direct lesson
+  and collection actions. Collections use grouped rows, while the library keeps
+  character grids and readable vocabulary rows. Decorative banners and slogans
+  have been removed from the main screens.
+- Phones use Study, Reviews, Library, Tests and More bottom tabs with safe-area
+  spacing. Learning path belongs to Study; Grammar, Mistakes, Progress and Settings
+  belong to More. All previous hash routes remain valid, and `#more` is added.
+  Desktop screens retain the sidebar. Bottom navigation hides in practice dialogs.
+- `dist/study.css` is the shared presentation layer over the existing functional
+  drawing and session styles. It uses system fonts, neutral surfaces and one blue
+  accent. Phone body text is 16px; main controls are at least 48px. The larger
+  writing board, start marker and sticky close control are retained.
+- Learner storage and backup formats are unchanged (`kanji-path-v1`). The current
+  offline asset cache is `kanji-path-v9`; it includes the shared shell and stylesheet.
+- Route and isolated full-app integration tests cover the navigation, dialogs,
+  test modes, hidden dictation transcripts and preservation of existing progress.
+  Rendered checks at phone/landscape/desktop sizes still require browser access;
+  Windows browser automation currently stops because URL-policy enforcement is
+  unsupported, so code-level checks are not a substitute for visual confirmation.
+
 Phone handwriting uses the available dialog width (up to 420px), with a larger
 stroke-start marker and 48px writing-tool buttons. The modal close button has a
 52px touch target on phones and stays visible in the sticky dialog header.
