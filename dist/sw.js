@@ -1,4 +1,4 @@
-const CACHE='kanji-path-v9';
+const CACHE='kanji-path-v10';
 const FILES=['./','./index.html','./style.css','./study.css','./shell.js','./app.js','./core.js','./assessment.js','./test-page.js','./language-tests.js','./language-test-page.js','./data/reading.json','./data/conjugation.json','./mistakes.js','./learning-pages.js','./data/grammar.json','./data/grammar-meta.json','./icon.svg','./manifest.webmanifest','./data/kanji.json','./data/kana.json','./data/vocab.json','./data/sentences.json','./data/strokes.json','./data/KANJIVG-LICENSE.txt','./credits.html','./data/KANJI-DATA-LICENSE.txt','./data/EDRDG-LICENSE.html','./data/OPENJLPT-LICENSE.txt','./data/OPENJLPT-NOTICE.md','./data/vocab-meta.json'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('kanji-path-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});

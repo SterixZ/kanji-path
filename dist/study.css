@@ -83,3 +83,8 @@ dialog{border-radius:8px;background:var(--paper);max-width:calc(100vw - 16px);bo
 .profile-option,.bar-row small{overflow-wrap:anywhere}
 .course-row:focus-visible,.word-tile:focus-visible,.grammar-card:focus-visible,.more-row:focus-visible,.test-mode-tabs button:focus-visible,.tabs button:focus-visible{outline-offset:-4px}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Hidden notifications must not peek above the phone navigation. */
+#toast{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(12px);transition:opacity .2s,transform .2s}
+#toast:not(.show){visibility:hidden}
+#toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
