@@ -39,7 +39,32 @@ test('the app opens More, retains old progress, and connects navigation, dialogs
     assert.ok(app.innerHTML.includes(`<h1 tabindex="-1">${title.replaceAll('&','&amp;')}</h1>`),view);
     assert.equal(focused,'heading');
   }
-  await click({nav:'library'});await click({detail:'v-学校'});
+  await click({nav:'library'});
+  const kanji=JSON.parse(await fs.readFile(new URL('../dist/data/kanji.json',import.meta.url),'utf8'));
+  assert.match(app.innerHTML,/aria-label="Kanji levels"/);
+  const expectedLevels=['all','n5','n4','n3','n2','n1'];
+  assert.deepEqual([...app.innerHTML.matchAll(/data-library-level="([^"]+)"/g)].map(match=>match[1]),expectedLevels);
+  for(const n of [5,4,3,2,1]){
+    await click({libraryLevel:'n'+n});
+    assert.ok(app.innerHTML.includes(`data-library-level="n${n}" aria-pressed="true"`));
+    assert.ok(app.innerHTML.includes(`<option value="n${n}" selected`),'dropdown follows level button');
+    const results=node('library-results').innerHTML;
+    assert.ok(results.includes(`${kanji.filter(k=>k.jlpt===n).length.toLocaleString()} kanji`));
+    for(const [,id] of results.matchAll(/data-detail="([^"]+)"/g))assert.equal(kanji.find(k=>k.id===id)?.jlpt,n);
+  }
+  await events.get('change')({target:{id:'library-filter',value:'g1'}});
+  assert.ok(!app.innerHTML.includes('aria-pressed="true"'),'school grades do not highlight a JLPT level');
+  assert.ok(app.innerHTML.includes('<option value="g1" selected'));
+  await events.get('change')({target:{id:'library-filter',value:'n5'}});
+  assert.ok(app.innerHTML.includes('data-library-level="n5" aria-pressed="true"'),'level buttons follow dropdown');
+  await click({libraryLevel:'all'});
+  assert.ok(node('library-results').innerHTML.includes(`${kanji.length.toLocaleString()} kanji`),'All kanji includes ungraded characters');
+  await click({tab:'vocab'});
+  assert.match(app.innerHTML,/aria-label="Vocabulary levels"/);
+  await click({libraryLevel:'n4'});
+  assert.ok(app.innerHTML.includes('data-library-level="n4" aria-pressed="true"'));
+  assert.match(node('library-results').innerHTML,/Est\. N4/);
+  await click({detail:'v-学校'});
   assert.equal(modal.open,true);assert.ok(classes.has('modal-open'));assert.match(modal.innerHTML,/Word explorer/);
   await click({action:'close'});assert.equal(modal.open,false);assert.ok(!classes.has('modal-open'));
   await click({action:'start-lesson'});

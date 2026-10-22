@@ -95,3 +95,7 @@ dialog{border-radius:8px;background:var(--paper);max-width:calc(100vw - 16px);bo
 #session-exit p{font-size:16px;color:var(--muted);margin:0 0 24px}
 .session-exit-actions{display:grid;gap:10px}
 .session-exit-actions button{width:100%;min-height:48px}
+
+/* Progress markers are decoration, not an extra vocabulary grid column. */
+.word-tile{position:relative}
+.word-tile>.dot{position:absolute;top:8px;right:8px;width:6px;height:6px;border-radius:50%;background:var(--green)}
