@@ -1,5 +1,10 @@
 # Kanji Path
 
+Phone handwriting uses the available dialog width (up to 420px), with a larger
+stroke-start marker and 48px writing-tool buttons. The modal close button has a
+52px touch target on phones and stays visible in the sticky dialog header.
+The offline asset cache is `kanji-path-v8`; learner storage stays `kanji-path-v1`.
+
 ## Additional Test yourself modes
 
 - **Conjugation practice** uses 1,981 words with supported, unambiguous JMdict
