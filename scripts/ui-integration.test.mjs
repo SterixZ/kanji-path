@@ -9,10 +9,10 @@ test('the app opens More, retains old progress, and connects navigation, dialogs
   const events=new Map(),windowEvents=new Map(),nodes=new Map();let focused='';
   const classes=new Set();
   function node(id){
-    if(!nodes.has(id))nodes.set(id,{id,innerHTML:'',open:false,value:'',style:{},classList:{add(){},remove(){}},addEventListener(){},showModal(){this.open=true},close(){this.open=false},focus(){focused=id},querySelector(){return null},querySelectorAll(){return []}});
+    if(!nodes.has(id))nodes.set(id,{id,innerHTML:'',open:false,value:'',style:{},classList:{add(){},remove(){}},listeners:new Map(),addEventListener(name,fn){this.listeners.set(name,fn)},showModal(){this.open=true},close(){this.open=false},focus(){focused=id},querySelector(){return null},querySelectorAll(){return []}});
     return nodes.get(id);
   }
-  const app=node('app'),modal=node('modal');node('toast');
+  const app=node('app'),modal=node('modal'),confirmation=node('session-exit');node('toast');
   const find=selector=>{
     if(selector==='.page-heading h1')return node('heading');
     if(selector.startsWith('#')){
@@ -42,6 +42,19 @@ test('the app opens More, retains old progress, and connects navigation, dialogs
   await click({nav:'library'});await click({detail:'v-学校'});
   assert.equal(modal.open,true);assert.ok(classes.has('modal-open'));assert.match(modal.innerHTML,/Word explorer/);
   await click({action:'close'});assert.equal(modal.open,false);assert.ok(!classes.has('modal-open'));
+  await click({action:'start-lesson'});
+  await click({action:'next-step'});
+  const lessonHTML=modal.innerHTML;modal.scrollTop=180;
+  await click({action:'exit-session'});
+  assert.equal(confirmation.open,true);assert.equal(modal.open,true);
+  assert.equal(modal.innerHTML,lessonHTML);assert.equal(modal.scrollTop,180,'confirmation does not move the lesson');
+  await click({action:'resume-session'});
+  assert.equal(confirmation.open,false);assert.equal(modal.innerHTML,lessonHTML);
+  await click({action:'exit-session'});
+  let cancelled=false;confirmation.listeners.get('cancel')({preventDefault(){cancelled=true}});
+  assert.equal(cancelled,true);assert.equal(confirmation.open,false);assert.equal(modal.open,true,'Escape resumes the lesson');
+  await click({action:'exit-session'});await click({action:'finish-session'});
+  assert.equal(confirmation.open,false);assert.equal(modal.open,false);assert.ok(!classes.has('modal-open'));
   await click({nav:'test'});
   for(const mode of ['conjugation','reading','dictation','knowledge']){
     await click({testKind:mode});assert.ok(app.innerHTML.includes(`data-test-kind="${mode}" class="active"`),mode);
