@@ -1,5 +1,34 @@
 # Kanji Path
 
+## Additional Test yourself modes
+
+- **Conjugation practice** uses 1,981 words with supported, unambiguous JMdict
+  verb/adjective classes from the pinned OpenJLPT snapshot. Choose a vocabulary
+  level, word group, all built-in or previously practiced words, and a specific
+  form or mixed forms. Covers polite, past, negative, past negative and て-forms,
+  with kana/written answers and rule explanations. Unsupported classes are
+  omitted rather than inferred from word endings. Rebuild the class mapping with
+  `python -X utf8 scripts/build-conjugation.py` after rebuilding vocabulary.
+- **Graded reading** includes ten original CC0 passages, two per estimated N5–N1
+  level, with three comprehension questions each. Highlighted words have tappable
+  definitions. Furigana can be hidden. Results include explanations and the full
+  English translation. The source is `dist/data/reading.json`; levels are study
+  estimates, not official JLPT grading.
+- **Sentence dictation** selects distinct short vocabulary examples with complete
+  Japanese readings and retained source attribution. The level filter follows
+  the vocabulary item, so sentence difficulty can vary. A Japanese device voice
+  is required, and completed playback unlocks answers. Replay and slower audio
+  are supported. Kana, kanji, and token-level kana substitutions are accepted
+  when furigana is available. Whitespace and punctuation are ignored, but
+  spellings and particles still matter. Numeric/Latin readings and unresolved
+  kanji readings are excluded to avoid unreliable kana grading.
+- All three modes are under **Test yourself**, alongside the existing knowledge
+  check. Scores share the last-30-test history per learner and version-1 backups.
+  Conjugation/dictation errors use the existing word mistake notebook; reading
+  comprehension saves scores and offers retries without changing word reviews.
+  No backend, paid API, or account is introduced. New assets are precached in
+  `kanji-path-v7`, while learner storage stays `kanji-path-v1`.
+
 ## Grammar, typed tests, and mistake notebook
 
 - Grammar lessons cover estimated N5–N1: 81 / 98 / 101 / 123 / 123 points

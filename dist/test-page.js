@@ -1,10 +1,12 @@
-import {TEST_CATEGORIES,studiedMaterials,buildKnowledgeTest,gradeKnowledgeTest,shuffleQuestions,isCorrectAnswer} from './assessment.js';
+import {TEST_CATEGORIES,TEST_LABELS,studiedMaterials,buildKnowledgeTest,gradeKnowledgeTest,shuffleQuestions,isCorrectAnswer} from './assessment.js';
 import {updateMistake} from './mistakes.js';
+import {createLanguageTestPage} from './language-test-page.js';
 
-export function createTestPage({getProfile,getItems,esc,jp,icon,pageHeading,persist,render,navigate}){
+export function createTestPage({getProfile,getItems,getMaterials=()=>({classes:{},reading:[]}),speak,stopSpeech,hasVoice,esc,jp,icon,pageHeading,persist,render,navigate}){
   const defaults=()=>({category:'all',level:'all',count:10,format:'choice',vocabTask:'reading',source:'studied'});
-  let owner=null,test=null,settings=defaults();
-  const ensureOwner=()=>{const id=getProfile().id;if(id!==owner){owner=id;test=null;settings=defaults()}};
+  let owner=null,test=null,settings=defaults(),activity='knowledge';
+  const language=createLanguageTestPage({getProfile,getItems,getMaterials,speak,stopSpeech,hasVoice,esc,icon,pageHeading,persist,render});
+  const ensureOwner=()=>{const id=getProfile().id;if(id!==owner){owner=id;test=null;settings=defaults();activity='knowledge'}};
   const refresh=()=>{render();(document.querySelector('#typed-answer:not(:disabled)')||document.querySelector('#test-question'))?.focus()};
   const answerFor=(question,answer)=>answer?.choice==='skip'?'Not sure':question.format==='typed'?answer?.text||'Not answered':question.options.find(option=>option.id===answer?.choice)?.text||'Not answered';
   const itemSummary=question=>{const item=getItems().find(item=>item.id===question.itemId);return item?`<span lang="ja">${esc(item.char)}</span><small lang="ja">${esc(item.reading||'')}</small>`:''};
@@ -12,6 +14,11 @@ export function createTestPage({getProfile,getItems,esc,jp,icon,pageHeading,pers
   const select=(id,label,options,value)=>`<div class="form-row"><label for="${id}">${label}</label><select id="${id}">${options.map(([v,t])=>`<option value="${v}" ${String(value)===String(v)?'selected':''}>${t}</option>`).join('')}</select></div>`;
 
   function view(){
+    ensureOwner();
+    const tabs=`<div class="test-mode-tabs" role="group" aria-label="Test mode">${[['knowledge','Knowledge check'],['conjugation','Conjugation practice'],['reading','Graded reading'],['dictation','Sentence dictation']].map(([value,label])=>`<button data-test-kind="${value}" class="${activity===value?'active':''}" aria-pressed="${activity===value}">${label}</button>`).join('')}</div>`;
+    return tabs+(activity==='knowledge'?knowledgeView():language.view());
+  }
+  function knowledgeView(){
     ensureOwner();
     if(test)return test.index<test.questions.length?questionView():resultsView();
     const profile=getProfile(),all=studiedMaterials(profile.cards,getItems()),selection=eligible(),history=profile.tests||[],selected=Math.min(settings.count,selection.length);
@@ -28,7 +35,7 @@ export function createTestPage({getProfile,getItems,esc,jp,icon,pageHeading,pers
       ${selection.length?`<p class="small muted">${selected} question${selected===1?'':'s'} ready · one per studied item.</p>`:`<div class="notice">${settings.source==='mistakes'?'No unresolved mistakes match these filters. Correct answers clear items from the notebook.':all.length?'No practiced items match these filters. Try another selection or answer format.':'Complete a lesson or answer a practice card first. Browsing alone does not add test material.'}</div>`}
       <div class="button-row"><button class="primary" data-test-action="start" ${!selection.length?'disabled':''}>Start test ${icon('arrow')}</button><button class="secondary" data-nav="learn">Learning path</button></div></section>
       <section class="panel"><h2>Make recall a habit</h2><ul class="test-info"><li>Choose multiple choice or type answers from memory.</li><li>Incorrect answers and “not sure” go into your mistake notebook immediately.</li><li>A correct answer clears that item from the notebook.</li><li>Scores and mistakes stay with this learner and are included in backups.</li></ul><p class="small muted">Typed answers use the bundled readings and English meanings, with forgiving capitalization, spacing, and kana variants. Unlisted synonyms may need another try. Tests do not change your daily review schedule.</p><button class="text-link" data-nav="mistakes">Open mistake notebook ${icon('arrow')}</button></section></div>
-      <section class="panel test-history"><h2>Recent test scores</h2>${history.length?history.slice().reverse().map(result=>`<div class="test-history-row"><span><strong>${esc(TEST_CATEGORIES[result.category])}${result.level!=='all'?' · N'+result.level:''}</strong><small>${esc(new Date(result.at).toLocaleString('en',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}))}</small></span><span>${result.correct} / ${result.total}</span><b>${Math.round(result.correct/result.total*100)}%</b></div>`).join(''):'<p class="small muted">Your completed tests will appear here.</p>'}</section>`;
+      <section class="panel test-history"><h2>Recent test scores</h2>${history.length?history.slice().reverse().map(result=>`<div class="test-history-row"><span><strong>${esc(TEST_LABELS[result.category])}${result.level!=='all'?' · N'+result.level:''}</strong><small>${esc(new Date(result.at).toLocaleString('en',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}))}</small></span><span>${result.correct} / ${result.total}</span><b>${Math.round(result.correct/result.total*100)}%</b></div>`).join(''):'<p class="small muted">Your completed tests will appear here.</p>'}</section>`;
   }
 
   function questionView(){
@@ -52,6 +59,7 @@ export function createTestPage({getProfile,getItems,esc,jp,icon,pageHeading,pers
     updateMistake(getProfile(),question.itemId,isCorrectAnswer(question,answer),'test');persist();refresh();
   }
   function handleSubmit(form,event){
+    if(language.handleSubmit(form,event))return true;
     if(form.id!=='typed-answer-form')return false;
     event.preventDefault();ensureOwner();
     const input=form.querySelector('input'),text=input?.value.trim();
@@ -59,6 +67,7 @@ export function createTestPage({getProfile,getItems,esc,jp,icon,pageHeading,pers
     return true;
   }
   function handleChange(element){
+    if(language.handleChange(element))return true;
     if(!['test-category','test-level','test-size','test-source','test-format','test-vocab-task'].includes(element.id))return false;
     ensureOwner();
     if(element.id==='test-category')settings.category=Object.hasOwn(TEST_CATEGORIES,element.value)?element.value:'all';
@@ -70,6 +79,8 @@ export function createTestPage({getProfile,getItems,esc,jp,icon,pageHeading,pers
     render();return true;
   }
   function handleClick(dataset){
+    if(dataset.testKind){ensureOwner();if(['knowledge','conjugation','reading','dictation'].includes(dataset.testKind)){language.stopAudio();activity=dataset.testKind;if(activity!=='knowledge')language.setMode(activity);render()}return true}
+    if(language.handleClick(dataset))return true;
     if(!dataset.testAction&&!dataset.testChoice)return false;
     ensureOwner();
     if(dataset.testAction==='start'){
@@ -92,6 +103,6 @@ export function createTestPage({getProfile,getItems,esc,jp,icon,pageHeading,pers
     }
     refresh();return true;
   }
-  function openMistakes(){ensureOwner();test=null;settings={...defaults(),source:'mistakes'};navigate('test')}
-  return {view,handleClick,handleChange,handleSubmit,openMistakes};
+  function openMistakes(){ensureOwner();language.stopAudio();activity='knowledge';test=null;settings={...defaults(),source:'mistakes'};navigate('test')}
+  return {view,handleClick,handleChange,handleSubmit,openMistakes,handleInput:language.handleInput,stopAudio:language.stopAudio,onVoicesChanged:()=>{if(activity==='dictation')render()}};
 }

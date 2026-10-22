@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node scripts/serve.mjs",
-    "test": "node --test scripts/core.test.mjs scripts/vocab.test.mjs scripts/usage.test.mjs scripts/assessment.test.mjs scripts/learning.test.mjs",
+    "test": "node --test scripts/core.test.mjs scripts/vocab.test.mjs scripts/usage.test.mjs scripts/assessment.test.mjs scripts/learning.test.mjs scripts/language-tests.test.mjs",
     "deploy": "node scripts/deploy.mjs"
   }
 }

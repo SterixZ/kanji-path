@@ -1,4 +1,5 @@
 export const TEST_CATEGORIES={all:'All studied material',kanji:'Kanji',vocab:'Vocabulary',kana:'Kana',sentences:'Sentences',grammar:'Grammar'};
+export const TEST_LABELS={...TEST_CATEGORIES,conjugation:'Conjugation practice',reading:'Graded reading',dictation:'Sentence dictation'};
 export const materialCategory=item=>!item.kind?'kanji':item.kind==='vocab'?'vocab':['hiragana','katakana'].includes(item.kind)?'kana':item.kind==='sentence'?'sentences':item.kind==='grammar'?'grammar':null;
 
 export function studiedMaterials(cards,items,{category='all',level='all',itemIds=null}={}){
@@ -85,5 +86,5 @@ export function gradeKnowledgeTest(questions,answers){
 }
 
 export function validateTestHistory(history){
-  return (Array.isArray(history)?history:[]).filter(result=>result&&Number.isFinite(result.at)&&result.at>=0&&result.at<=8640000000000000&&Number.isInteger(result.total)&&result.total>0&&result.total<=20&&Number.isInteger(result.correct)&&result.correct>=0&&result.correct<=result.total&&Object.hasOwn(TEST_CATEGORIES,result.category)&&['all','1','2','3','4','5'].includes(String(result.level))).slice(-30).map(result=>({at:result.at,total:result.total,correct:result.correct,category:result.category,level:String(result.level)}));
+  return (Array.isArray(history)?history:[]).filter(result=>result&&Number.isFinite(result.at)&&result.at>=0&&result.at<=8640000000000000&&Number.isInteger(result.total)&&result.total>0&&result.total<=20&&Number.isInteger(result.correct)&&result.correct>=0&&result.correct<=result.total&&Object.hasOwn(TEST_LABELS,result.category)&&['all','1','2','3','4','5'].includes(String(result.level))).slice(-30).map(result=>({at:result.at,total:result.total,correct:result.correct,category:result.category,level:String(result.level)}));
 }
