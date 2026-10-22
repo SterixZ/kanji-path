@@ -1,7 +1,7 @@
-import {shuffleQuestions,studiedMaterials,normalizeTypedAnswer} from './assessment.js';
+import {shuffleQuestions,studiedMaterials,normalizeTypedAnswer,isCorrectAnswer} from './assessment.js';
 import {furiganaTokens,sentenceSpeech} from './core.js';
 
-export const LANGUAGE_MODES={conjugation:'Conjugation practice',reading:'Graded reading',dictation:'Sentence dictation'};
+export const LANGUAGE_MODES={mixed:'Daily mixed session',conjugation:'Conjugation practice',reading:'Graded reading',dictation:'Sentence dictation'};
 export const CONJUGATION_FORMS={polite:'Polite present',politePast:'Polite past',politeNegative:'Polite negative',politeNegativePast:'Polite past negative',negative:'Plain negative',past:'Plain past',negativePast:'Plain past negative',te:'て-form'};
 export const CLASS_NAMES={'v1':'Ichidan verb','v1-s':'Ichidan verb','vs-i':'する verb',vk:'来る verb','adj-i':'い-adjective','adj-ix':'いい adjective','adj-na':'な-adjective'};
 export const conjugationClass=tag=>CLASS_NAMES[tag]||'Godan verb';
@@ -54,7 +54,7 @@ export function buildConjugationTest(cards,items,classes,settings={},random=Math
   return shuffleQuestions(conjugationWords(cards,items,classes,settings),random).slice(0,boundedCount(settings.count)).map(item=>{
     const tag=classes[item.id],chosen=Object.hasOwn(CONJUGATION_FORMS,form)?form:shuffleQuestions(Object.keys(CONJUGATION_FORMS),random)[0];
     const kana=conjugate(item.reading,tag,chosen),written=conjugate(item.char,tag,chosen);
-    return {id:`conjugation:${item.id}:${chosen}`,itemId:item.id,type:'conjugation',form:chosen,format:'typed',title:`Write the requested form: ${CONJUGATION_FORMS[chosen].toLowerCase()}.`,prompt:item.char,reading:item.reading,meaning:item.meanings[0],group:conjugationClass(tag),answer:kana[0],acceptedAnswers:[...new Set([...kana,...written])],options:[],explanation:`${item.char} (${item.reading}) → ${kana[0]} · ${CONJUGATION_FORMS[chosen]}. ${conjugationRule(tag,chosen)}`};
+    return {id:`conjugation:${item.id}:${chosen}`,itemId:item.id,level:item.jlpt,type:'conjugation',form:chosen,format:'typed',title:`Write the requested form: ${CONJUGATION_FORMS[chosen].toLowerCase()}.`,prompt:item.char,reading:item.reading,meaning:item.meanings[0],group:conjugationClass(tag),answer:kana[0],acceptedAnswers:[...new Set([...kana,...written])],options:[],explanation:`${item.char} (${item.reading}) → ${kana[0]} · ${CONJUGATION_FORMS[chosen]}. ${conjugationRule(tag,chosen)}`};
   }).filter(q=>q.answer);
 }
 
@@ -70,7 +70,7 @@ export function dictationSentences(cards,items,{level='5',source='all'}={}){
       const kana=sentenceSpeech(example),plain=example.ja;
       if(!plain||plain.length>90||!kana||/[\p{Script=Han}\p{Number}A-Za-z]/u.test(kana)||seen.has(normalizeDictation(plain)))continue;
       seen.add(normalizeDictation(plain));
-      result.push({id:`dictation:${item.id}:${result.length}`,itemId:item.id,type:'dictation',format:'typed',title:'Listen, then type the full Japanese sentence.',prompt:'',answer:plain,acceptedAnswers:[plain,kana],segments:example.furigana?furiganaTokens(example.furigana):[],audio:plain,reading:kana,translation:example.en,options:[],tatoebaId:example.tatoeba_id||null,source:example.source||'Kanji Path'});
+      result.push({id:`dictation:${item.id}:${result.length}`,itemId:item.id,level:item.jlpt,type:'dictation',format:'typed',title:'Listen, then type the full Japanese sentence.',prompt:'',answer:plain,acceptedAnswers:[plain,kana],segments:example.furigana?furiganaTokens(example.furigana):[],audio:plain,reading:kana,translation:example.en,options:[],tatoebaId:example.tatoeba_id||null,source:example.source||'Kanji Path'});
     }
   }
   return result;
@@ -89,12 +89,13 @@ export function matchesDictation(question,value){
 export function readingQuestions(passage,random=Math.random){
   return passage.questions.map((question,index)=>{
     const options=shuffleQuestions(question.choices.map((text,i)=>({id:'answer-'+i,text})),random);
-    return {id:`reading:${passage.id}:${index}`,itemId:null,type:'reading-comprehension',format:'choice',title:question.prompt,prompt:'',answer:question.choices[question.answer],correctChoice:'answer-'+question.answer,options,explanation:question.explanation,passageId:passage.id};
+    return {id:`reading:${passage.id}:${index}`,itemId:passage.id,type:'reading-comprehension',format:'choice',title:question.prompt,prompt:'',answer:question.choices[question.answer],correctChoice:'answer-'+question.answer,options,explanation:question.explanation,passageId:passage.id,level:passage.level};
   });
 }
 export function checkLanguageAnswer(question,answer){
   if(!answer||answer.choice==='skip')return false;
-  if(question.format==='choice')return answer.choice===question.correctChoice;
+  if(question.format==='choice'||question.correctChoice)return answer.choice===question.correctChoice;
+  if(!['conjugation','dictation'].includes(question.type))return isCorrectAnswer(question,answer);
   if(question.type==='dictation')return matchesDictation(question,answer.text);
   const normalize=value=>normalizeTypedAnswer(value,'reading');
   const text=normalize(answer.text);

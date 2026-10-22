@@ -1,112 +1,1672 @@
 [
   {
-    "id":"read-n5-library","level":5,"title":"A Saturday at the library","source":"Kanji Path","license":"CC0-1.0",
-    "text":"{土曜日|どようび}、{私|わたし}は{図書館|としょかん}に{行|い}きます。{図書館|としょかん}は{駅|えき}の{近|ちか}くにあります。{家|いえ}から{歩|ある}いて{十分|じゅっぷん}です。\n\n{朝|あさ}は{人|ひと}が{少|すく}ないです。{私|わたし}は{九時|くじ}に{行|い}きます。{日本語|にほんご}の{本|ほん}を{読|よ}みます。{十二時|じゅうにじ}に{家|いえ}に{帰|かえ}ります。",
-    "translation":"On Saturdays, I go to the library. The library is near the station. It is a ten-minute walk from home. There are few people in the morning. I go at nine. I read Japanese books. I return home at twelve.",
-    "glossary":[{"term":"図書館","reading":"としょかん","meaning":"library"},{"term":"駅","reading":"えき","meaning":"station"},{"term":"家","reading":"いえ","meaning":"home; house"},{"term":"朝","reading":"あさ","meaning":"morning"},{"term":"本","reading":"ほん","meaning":"book"}],
-    "questions":[
-      {"prompt":"Where is the library?","choices":["Near the station","Inside a school","Far from the town","Next to a hospital"],"answer":0,"explanation":"The passage says 図書館は駅の近くにあります: the library is near the station."},
-      {"prompt":"How does the narrator get there?","choices":["By walking for ten minutes","By taking a train for ten minutes","By riding a bus for an hour","By driving with a friend"],"answer":0,"explanation":"家から歩いて十分です means it is a ten-minute walk from home."},
-      {"prompt":"Why is the morning a good time to visit?","choices":["There are fewer people","All books are free to keep","The library closes at nine","Friends meet there every morning"],"answer":0,"explanation":"朝は人が少ないです says there are few people in the morning."}
+    "id": "read-n5-library",
+    "level": 5,
+    "title": "A Saturday at the library",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{土曜日|どようび}、{私|わたし}は{図書館|としょかん}に{行|い}きます。{図書館|としょかん}は{駅|えき}の{近|ちか}くにあります。{家|いえ}から{歩|ある}いて{十分|じゅっぷん}です。\n\n{朝|あさ}は{人|ひと}が{少|すく}ないです。{私|わたし}は{九時|くじ}に{行|い}きます。{日本語|にほんご}の{本|ほん}を{読|よ}みます。{十二時|じゅうにじ}に{家|いえ}に{帰|かえ}ります。",
+    "translation": "On Saturdays, I go to the library. The library is near the station. It is a ten-minute walk from home. There are few people in the morning. I go at nine. I read Japanese books. I return home at twelve.",
+    "glossary": [
+      {
+        "term": "図書館",
+        "reading": "としょかん",
+        "meaning": "library"
+      },
+      {
+        "term": "駅",
+        "reading": "えき",
+        "meaning": "station"
+      },
+      {
+        "term": "家",
+        "reading": "いえ",
+        "meaning": "home; house"
+      },
+      {
+        "term": "朝",
+        "reading": "あさ",
+        "meaning": "morning"
+      },
+      {
+        "term": "本",
+        "reading": "ほん",
+        "meaning": "book"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Where is the library?",
+        "choices": [
+          "Near the station",
+          "Inside a school",
+          "Far from the town",
+          "Next to a hospital"
+        ],
+        "answer": 0,
+        "explanation": "The passage says 図書館は駅の近くにあります: the library is near the station."
+      },
+      {
+        "prompt": "How does the narrator get there?",
+        "choices": [
+          "By walking for ten minutes",
+          "By taking a train for ten minutes",
+          "By riding a bus for an hour",
+          "By driving with a friend"
+        ],
+        "answer": 0,
+        "explanation": "家から歩いて十分です means it is a ten-minute walk from home."
+      },
+      {
+        "prompt": "Why is the morning a good time to visit?",
+        "choices": [
+          "There are fewer people",
+          "All books are free to keep",
+          "The library closes at nine",
+          "Friends meet there every morning"
+        ],
+        "answer": 0,
+        "explanation": "朝は人が少ないです says there are few people in the morning."
+      }
     ]
   },
   {
-    "id":"read-n5-lunch","level":5,"title":"Shopping for lunch","source":"Kanji Path","license":"CC0-1.0",
-    "text":"{今日|きょう}は{日曜日|にちようび}です。{父|ちち}とスーパーに{行|い}きます。{昼|ひる}ご{飯|はん}にカレーを{作|つく}ります。{家|いえ}に{肉|にく}があります。でも、{野菜|やさい}はありません。\n\nスーパーで、じゃがいもとにんじんを{買|か}います。{父|ちち}は{牛乳|ぎゅうにゅう}も{買|か}います。{買|か}い{物|もの}は{全部|ぜんぶ}で{千円|せんえん}です。{家|いえ}で{一緒|いっしょ}にカレーを{作|つく}ります。",
-    "translation":"Today is Sunday. I go to the supermarket with my father. We will make curry for lunch. There is meat at home, but there are no vegetables. At the supermarket, we buy potatoes and carrots. My father also buys milk. The shopping costs one thousand yen in total. At home, we make curry together.",
-    "glossary":[{"term":"父","reading":"ちち","meaning":"my father"},{"term":"肉","reading":"にく","meaning":"meat"},{"term":"野菜","reading":"やさい","meaning":"vegetables"},{"term":"牛乳","reading":"ぎゅうにゅう","meaning":"milk"},{"term":"全部","reading":"ぜんぶ","meaning":"all; in total"},{"term":"一緒","reading":"いっしょ","meaning":"together"}],
-    "questions":[
-      {"prompt":"What will they make for lunch?","choices":["Curry","Sushi","Sandwiches","Noodles"],"answer":0,"explanation":"昼ご飯にカレーを作ります explicitly states that lunch will be curry."},
-      {"prompt":"Why do they need to buy vegetables?","choices":["There are none at home","Their father dislikes meat","The shop has no milk","They are cooking for a restaurant"],"answer":0,"explanation":"家に肉があります。でも、野菜はありません contrasts the meat they have with the vegetables they lack."},
-      {"prompt":"How much does all the shopping cost?","choices":["1,000 yen","100 yen","2,000 yen","10,000 yen"],"answer":0,"explanation":"買い物は全部で千円です gives the total as one thousand yen."}
+    "id": "read-n5-lunch",
+    "level": 5,
+    "title": "Shopping for lunch",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{今日|きょう}は{日曜日|にちようび}です。{父|ちち}とスーパーに{行|い}きます。{昼|ひる}ご{飯|はん}にカレーを{作|つく}ります。{家|いえ}に{肉|にく}があります。でも、{野菜|やさい}はありません。\n\nスーパーで、じゃがいもとにんじんを{買|か}います。{父|ちち}は{牛乳|ぎゅうにゅう}も{買|か}います。{買|か}い{物|もの}は{全部|ぜんぶ}で{千円|せんえん}です。{家|いえ}で{一緒|いっしょ}にカレーを{作|つく}ります。",
+    "translation": "Today is Sunday. I go to the supermarket with my father. We will make curry for lunch. There is meat at home, but there are no vegetables. At the supermarket, we buy potatoes and carrots. My father also buys milk. The shopping costs one thousand yen in total. At home, we make curry together.",
+    "glossary": [
+      {
+        "term": "父",
+        "reading": "ちち",
+        "meaning": "my father"
+      },
+      {
+        "term": "肉",
+        "reading": "にく",
+        "meaning": "meat"
+      },
+      {
+        "term": "野菜",
+        "reading": "やさい",
+        "meaning": "vegetables"
+      },
+      {
+        "term": "牛乳",
+        "reading": "ぎゅうにゅう",
+        "meaning": "milk"
+      },
+      {
+        "term": "全部",
+        "reading": "ぜんぶ",
+        "meaning": "all; in total"
+      },
+      {
+        "term": "一緒",
+        "reading": "いっしょ",
+        "meaning": "together"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What will they make for lunch?",
+        "choices": [
+          "Curry",
+          "Sushi",
+          "Sandwiches",
+          "Noodles"
+        ],
+        "answer": 0,
+        "explanation": "昼ご飯にカレーを作ります explicitly states that lunch will be curry."
+      },
+      {
+        "prompt": "Why do they need to buy vegetables?",
+        "choices": [
+          "There are none at home",
+          "Their father dislikes meat",
+          "The shop has no milk",
+          "They are cooking for a restaurant"
+        ],
+        "answer": 0,
+        "explanation": "家に肉があります。でも、野菜はありません contrasts the meat they have with the vegetables they lack."
+      },
+      {
+        "prompt": "How much does all the shopping cost?",
+        "choices": [
+          "1,000 yen",
+          "100 yen",
+          "2,000 yen",
+          "10,000 yen"
+        ],
+        "answer": 0,
+        "explanation": "買い物は全部で千円です gives the total as one thousand yen."
+      }
     ]
   },
   {
-    "id":"read-n4-umbrella","level":4,"title":"The umbrella left behind","source":"Kanji Path","license":"CC0-1.0",
-    "text":"{昨日|きのう}、{仕事|しごと}が{終|お}わってから、{駅|えき}の{近|ちか}くの{喫茶店|きっさてん}で{友達|ともだち}に{会|あ}いました。{店|みせ}に{入|はい}るときは{雨|あめ}が{降|ふ}っていましたが、{帰|かえ}るときはやんでいました。\n\n{今朝|けさ}、かさがないことに{気|き}がつきました。{喫茶店|きっさてん}に{電話|でんわ}すると、{店|みせ}の{人|ひと}が「{青|あお}いかさを{預|あず}かっています」と{言|い}いました。{私|わたし}のかさも{青|あお}いので、{仕事|しごと}の{後|あと}で{取|と}りに{行|い}くことにしました。{店|みせ}の{人|ひと}にお{礼|れい}を{言|い}いたいです。",
-    "translation":"Yesterday, after work, I met a friend at a café near the station. It was raining when I entered, but it had stopped when I left. This morning, I noticed my umbrella was missing. I called the café, and a staff member said they were keeping a blue umbrella. Mine is blue too, so I decided to go and collect it after work. I want to thank the staff member.",
-    "glossary":[{"term":"喫茶店","reading":"きっさてん","meaning":"café; coffee shop"},{"term":"今朝","reading":"けさ","meaning":"this morning"},{"term":"電話","reading":"でんわ","meaning":"telephone; phone call"},{"term":"仕事","reading":"しごと","meaning":"work; job"},{"term":"友達","reading":"ともだち","meaning":"friend"}],
-    "questions":[
-      {"prompt":"When did the narrator notice the umbrella was missing?","choices":["This morning","On entering the café","During yesterday's lunch","After collecting it"],"answer":0,"explanation":"今朝、かさがないことに気がつきました places the discovery this morning."},
-      {"prompt":"What suggests the umbrella at the café belongs to the narrator?","choices":["It is blue, like the narrator's umbrella","It has the narrator's phone number","A friend bought it that morning","The café only keeps black umbrellas"],"answer":0,"explanation":"The staff describe a blue umbrella, and the narrator says 私のかさも青い."},
-      {"prompt":"What will the narrator do after work?","choices":["Collect the umbrella from the café","Buy a new umbrella at the station","Ask a friend to phone the café","Wait at home for a delivery"],"answer":0,"explanation":"仕事の後で取りに行くことにしました means the narrator decided to go and get it after work."}
+    "id": "read-n4-umbrella",
+    "level": 4,
+    "title": "The umbrella left behind",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{昨日|きのう}、{仕事|しごと}が{終|お}わってから、{駅|えき}の{近|ちか}くの{喫茶店|きっさてん}で{友達|ともだち}に{会|あ}いました。{店|みせ}に{入|はい}るときは{雨|あめ}が{降|ふ}っていましたが、{帰|かえ}るときはやんでいました。\n\n{今朝|けさ}、かさがないことに{気|き}がつきました。{喫茶店|きっさてん}に{電話|でんわ}すると、{店|みせ}の{人|ひと}が「{青|あお}いかさを{預|あず}かっています」と{言|い}いました。{私|わたし}のかさも{青|あお}いので、{仕事|しごと}の{後|あと}で{取|と}りに{行|い}くことにしました。{店|みせ}の{人|ひと}にお{礼|れい}を{言|い}いたいです。",
+    "translation": "Yesterday, after work, I met a friend at a café near the station. It was raining when I entered, but it had stopped when I left. This morning, I noticed my umbrella was missing. I called the café, and a staff member said they were keeping a blue umbrella. Mine is blue too, so I decided to go and collect it after work. I want to thank the staff member.",
+    "glossary": [
+      {
+        "term": "喫茶店",
+        "reading": "きっさてん",
+        "meaning": "café; coffee shop"
+      },
+      {
+        "term": "今朝",
+        "reading": "けさ",
+        "meaning": "this morning"
+      },
+      {
+        "term": "電話",
+        "reading": "でんわ",
+        "meaning": "telephone; phone call"
+      },
+      {
+        "term": "仕事",
+        "reading": "しごと",
+        "meaning": "work; job"
+      },
+      {
+        "term": "友達",
+        "reading": "ともだち",
+        "meaning": "friend"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "When did the narrator notice the umbrella was missing?",
+        "choices": [
+          "This morning",
+          "On entering the café",
+          "During yesterday's lunch",
+          "After collecting it"
+        ],
+        "answer": 0,
+        "explanation": "今朝、かさがないことに気がつきました places the discovery this morning."
+      },
+      {
+        "prompt": "What suggests the umbrella at the café belongs to the narrator?",
+        "choices": [
+          "It is blue, like the narrator's umbrella",
+          "It has the narrator's phone number",
+          "A friend bought it that morning",
+          "The café only keeps black umbrellas"
+        ],
+        "answer": 0,
+        "explanation": "The staff describe a blue umbrella, and the narrator says 私のかさも青い."
+      },
+      {
+        "prompt": "What will the narrator do after work?",
+        "choices": [
+          "Collect the umbrella from the café",
+          "Buy a new umbrella at the station",
+          "Ask a friend to phone the café",
+          "Wait at home for a delivery"
+        ],
+        "answer": 0,
+        "explanation": "仕事の後で取りに行くことにしました means the narrator decided to go and get it after work."
+      }
     ]
   },
   {
-    "id":"read-n4-garden","level":4,"title":"A small vegetable garden","source":"Kanji Path","license":"CC0-1.0",
-    "text":"{春|はる}から、{近所|きんじょ}の{人|ひと}たちと{小|ちい}さな{畑|はたけ}で{野菜|やさい}を{育|そだ}てています。{初|はじ}めは{何|なに}も{分|わ}からなかったので、{年上|としうえ}の{人|ひと}に{教|おし}えてもらいました。\n\n{毎日|まいにち}{行|い}くことはできませんが、{土曜日|どようび}の{朝|あさ}は{必ず|かならず}{水|みず}をやります。{先週|せんしゅう}、{初|はじ}めてトマトが{赤|あか}くなりました。{店|みせ}で{買|か}うトマトより{少|すこ}し{小|ちい}さかったですが、とてもおいしかったです。{来年|らいねん}は、{子供|こども}と{一緒|いっしょ}に{育|そだ}ててみたいです。",
-    "translation":"Since spring, I have been growing vegetables in a small garden with people in the neighborhood. At first I knew nothing, so older neighbors taught me. I cannot go every day, but I always water the plants on Saturday mornings. Last week, a tomato turned red for the first time. It was a little smaller than tomatoes from the shop, but delicious. Next year, I would like to try growing vegetables with my child.",
-    "glossary":[{"term":"近所","reading":"きんじょ","meaning":"neighborhood"},{"term":"畑","reading":"はたけ","meaning":"field; vegetable garden"},{"term":"年上","reading":"としうえ","meaning":"older; senior in age"},{"term":"必ず","reading":"かならず","meaning":"always; without fail"},{"term":"来年","reading":"らいねん","meaning":"next year"}],
-    "questions":[
-      {"prompt":"How did the narrator learn to grow vegetables?","choices":["Older neighbors taught them","They had worked on a farm for years","Their child taught them everything","They learned only from television"],"answer":0,"explanation":"年上の人に教えてもらいました says the narrator received instruction from older people."},
-      {"prompt":"When does the narrator always water the plants?","choices":["Saturday morning","Every evening","Sunday night","Only when it rains"],"answer":0,"explanation":"土曜日の朝は必ず水をやります specifies Saturday mornings."},
-      {"prompt":"What does the narrator want to try next year?","choices":["Growing vegetables with their child","Selling the entire garden","Buying all vegetables from a shop","Stopping the Saturday visits"],"answer":0,"explanation":"The final sentence expresses a wish to grow vegetables with the narrator's child next year."}
+    "id": "read-n4-garden",
+    "level": 4,
+    "title": "A small vegetable garden",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{春|はる}から、{近所|きんじょ}の{人|ひと}たちと{小|ちい}さな{畑|はたけ}で{野菜|やさい}を{育|そだ}てています。{初|はじ}めは{何|なに}も{分|わ}からなかったので、{年上|としうえ}の{人|ひと}に{教|おし}えてもらいました。\n\n{毎日|まいにち}{行|い}くことはできませんが、{土曜日|どようび}の{朝|あさ}は{必ず|かならず}{水|みず}をやります。{先週|せんしゅう}、{初|はじ}めてトマトが{赤|あか}くなりました。{店|みせ}で{買|か}うトマトより{少|すこ}し{小|ちい}さかったですが、とてもおいしかったです。{来年|らいねん}は、{子供|こども}と{一緒|いっしょ}に{育|そだ}ててみたいです。",
+    "translation": "Since spring, I have been growing vegetables in a small garden with people in the neighborhood. At first I knew nothing, so older neighbors taught me. I cannot go every day, but I always water the plants on Saturday mornings. Last week, a tomato turned red for the first time. It was a little smaller than tomatoes from the shop, but delicious. Next year, I would like to try growing vegetables with my child.",
+    "glossary": [
+      {
+        "term": "近所",
+        "reading": "きんじょ",
+        "meaning": "neighborhood"
+      },
+      {
+        "term": "畑",
+        "reading": "はたけ",
+        "meaning": "field; vegetable garden"
+      },
+      {
+        "term": "年上",
+        "reading": "としうえ",
+        "meaning": "older; senior in age"
+      },
+      {
+        "term": "必ず",
+        "reading": "かならず",
+        "meaning": "always; without fail"
+      },
+      {
+        "term": "来年",
+        "reading": "らいねん",
+        "meaning": "next year"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "How did the narrator learn to grow vegetables?",
+        "choices": [
+          "Older neighbors taught them",
+          "They had worked on a farm for years",
+          "Their child taught them everything",
+          "They learned only from television"
+        ],
+        "answer": 0,
+        "explanation": "年上の人に教えてもらいました says the narrator received instruction from older people."
+      },
+      {
+        "prompt": "When does the narrator always water the plants?",
+        "choices": [
+          "Saturday morning",
+          "Every evening",
+          "Sunday night",
+          "Only when it rains"
+        ],
+        "answer": 0,
+        "explanation": "土曜日の朝は必ず水をやります specifies Saturday mornings."
+      },
+      {
+        "prompt": "What does the narrator want to try next year?",
+        "choices": [
+          "Growing vegetables with their child",
+          "Selling the entire garden",
+          "Buying all vegetables from a shop",
+          "Stopping the Saturday visits"
+        ],
+        "answer": 0,
+        "explanation": "The final sentence expresses a wish to grow vegetables with the narrator's child next year."
+      }
     ]
   },
   {
-    "id":"read-n3-bikes","level":3,"title":"Bicycles near the station","source":"Kanji Path","license":"CC0-1.0",
-    "text":"{駅前|えきまえ}では、{歩道|ほどう}に{置|お}かれた{自転車|じてんしゃ}が{問題|もんだい}になっていた。{市|し}は{新|あたら}しい{駐輪場|ちゅうりんじょう}を{作|つく}ったが、{利用|りよう}する{人|ひと}は{思|おも}ったほど{増|ふ}えなかった。{入口|いりぐち}が{駅|えき}と{反対側|はんたいがわ}にあり、{遠回|とおまわ}りしなければならなかったからだ。\n\nそこで{市|し}は、{利用者|りようしゃ}の{意見|いけん}を{聞|き}き、{駅|えき}に{近|ちか}い{場所|ばしょ}にも{入口|いりぐち}を{設|もう}けた。{案内|あんない}の{看板|かんばん}も{増|ふ}やしたところ、{利用者|りようしゃ}が{少|すこ}しずつ{増|ふ}えてきた。{施設|しせつ}を{作|つく}るだけでなく、{使|つか}う{人|ひと}の{立場|たちば}で{考|かんが}えることが{大切|たいせつ}なのだ。",
-    "translation":"Bicycles left on the sidewalks near the station had become a problem. The city built a new bicycle parking facility, but use did not rise as much as expected. Its entrance was on the side away from the station, requiring a detour. The city listened to users and added an entrance closer to the station. After it added more signs too, use began to increase gradually. Building a facility is not enough; considering the user's perspective matters.",
-    "glossary":[{"term":"歩道","reading":"ほどう","meaning":"sidewalk"},{"term":"駐輪場","reading":"ちゅうりんじょう","meaning":"bicycle parking area"},{"term":"反対側","reading":"はんたいがわ","meaning":"opposite side"},{"term":"利用者","reading":"りようしゃ","meaning":"user"},{"term":"立場","reading":"たちば","meaning":"position; perspective"}],
-    "questions":[
-      {"prompt":"Why did few people initially use the new parking area?","choices":["The entrance required an inconvenient detour","Bicycles were prohibited inside","It opened only on Saturdays","It had no space for bicycles"],"answer":0,"explanation":"The text links low use to the entrance being on the opposite side, forcing users to take a detour."},
-      {"prompt":"What did the city change after hearing users' opinions?","choices":["It added an entrance near the station and more signs","It closed the station entrance permanently","It charged more for parking on the sidewalk","It removed all signs near the facility"],"answer":0,"explanation":"The second paragraph describes a new nearby entrance and additional guidance signs."},
-      {"prompt":"What is the main lesson of the passage?","choices":["Facilities should be designed from users' perspectives","New construction always solves a problem immediately","Signs are more important than every other feature","People should stop using bicycles entirely"],"answer":0,"explanation":"The final sentence emphasizes 使う人の立場で考える: thinking from the perspective of the people who use the facility."}
+    "id": "read-n3-bikes",
+    "level": 3,
+    "title": "Bicycles near the station",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{駅前|えきまえ}では、{歩道|ほどう}に{置|お}かれた{自転車|じてんしゃ}が{問題|もんだい}になっていた。{市|し}は{新|あたら}しい{駐輪場|ちゅうりんじょう}を{作|つく}ったが、{利用|りよう}する{人|ひと}は{思|おも}ったほど{増|ふ}えなかった。{入口|いりぐち}が{駅|えき}と{反対側|はんたいがわ}にあり、{遠回|とおまわ}りしなければならなかったからだ。\n\nそこで{市|し}は、{利用者|りようしゃ}の{意見|いけん}を{聞|き}き、{駅|えき}に{近|ちか}い{場所|ばしょ}にも{入口|いりぐち}を{設|もう}けた。{案内|あんない}の{看板|かんばん}も{増|ふ}やしたところ、{利用者|りようしゃ}が{少|すこ}しずつ{増|ふ}えてきた。{施設|しせつ}を{作|つく}るだけでなく、{使|つか}う{人|ひと}の{立場|たちば}で{考|かんが}えることが{大切|たいせつ}なのだ。",
+    "translation": "Bicycles left on the sidewalks near the station had become a problem. The city built a new bicycle parking facility, but use did not rise as much as expected. Its entrance was on the side away from the station, requiring a detour. The city listened to users and added an entrance closer to the station. After it added more signs too, use began to increase gradually. Building a facility is not enough; considering the user's perspective matters.",
+    "glossary": [
+      {
+        "term": "歩道",
+        "reading": "ほどう",
+        "meaning": "sidewalk"
+      },
+      {
+        "term": "駐輪場",
+        "reading": "ちゅうりんじょう",
+        "meaning": "bicycle parking area"
+      },
+      {
+        "term": "反対側",
+        "reading": "はんたいがわ",
+        "meaning": "opposite side"
+      },
+      {
+        "term": "利用者",
+        "reading": "りようしゃ",
+        "meaning": "user"
+      },
+      {
+        "term": "立場",
+        "reading": "たちば",
+        "meaning": "position; perspective"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Why did few people initially use the new parking area?",
+        "choices": [
+          "The entrance required an inconvenient detour",
+          "Bicycles were prohibited inside",
+          "It opened only on Saturdays",
+          "It had no space for bicycles"
+        ],
+        "answer": 0,
+        "explanation": "The text links low use to the entrance being on the opposite side, forcing users to take a detour."
+      },
+      {
+        "prompt": "What did the city change after hearing users' opinions?",
+        "choices": [
+          "It added an entrance near the station and more signs",
+          "It closed the station entrance permanently",
+          "It charged more for parking on the sidewalk",
+          "It removed all signs near the facility"
+        ],
+        "answer": 0,
+        "explanation": "The second paragraph describes a new nearby entrance and additional guidance signs."
+      },
+      {
+        "prompt": "What is the main lesson of the passage?",
+        "choices": [
+          "Facilities should be designed from users' perspectives",
+          "New construction always solves a problem immediately",
+          "Signs are more important than every other feature",
+          "People should stop using bicycles entirely"
+        ],
+        "answer": 0,
+        "explanation": "The final sentence emphasizes 使う人の立場で考える: thinking from the perspective of the people who use the facility."
+      }
     ]
   },
   {
-    "id":"read-n3-study","level":3,"title":"An online study group","source":"Kanji Path","license":"CC0-1.0",
-    "text":"{一人|ひとり}で{日本語|にほんご}を{勉強|べんきょう}していたころは、{分|わ}からない{表現|ひょうげん}があると、すぐに{答|こた}えを{調|しら}べていた。しかし、それでは{自分|じぶん}の{考|かんが}えを{言葉|ことば}にする{練習|れんしゅう}が{足|た}りないと{感|かん}じた。\n\n{今|いま}は、{週|しゅう}に{一度|いちど}、オンラインの{勉強会|べんきょうかい}に{参加|さんか}している。{参加者|さんかしゃ}は{短|みじか}い{記事|きじ}を{読|よ}み、まず{辞書|じしょ}を{使|つか}わずに{内容|ないよう}を{説明|せつめい}する。その{後|あと}で、お{互|たが}いに{質問|しつもん}したり、{表現|ひょうげん}を{確|たし}かめたりする。{間違|まちが}えることもあるが、{自分|じぶん}で{考|かんが}えてから{調|しら}べた{言葉|ことば}は、{前|まえ}より{覚|おぼ}えやすくなった。",
-    "translation":"When I studied Japanese alone, I immediately looked up answers whenever I encountered an unfamiliar expression. But I felt this did not give me enough practice putting my thoughts into words. Now I attend an online study group once a week. Participants read a short article and first explain its content without a dictionary. Then they ask each other questions and check expressions. I make mistakes, but words I look up after thinking for myself are easier to remember than before.",
-    "glossary":[{"term":"表現","reading":"ひょうげん","meaning":"expression"},{"term":"練習","reading":"れんしゅう","meaning":"practice"},{"term":"参加者","reading":"さんかしゃ","meaning":"participant"},{"term":"記事","reading":"きじ","meaning":"article"},{"term":"内容","reading":"ないよう","meaning":"content"}],
-    "questions":[
-      {"prompt":"What was missing from the narrator's previous study method?","choices":["Practice expressing their own thoughts","Access to any Japanese books","Enough time to look up answers","An internet connection at home"],"answer":0,"explanation":"The first paragraph identifies a lack of practice putting one's own thoughts into words."},
-      {"prompt":"What do participants do before checking expressions?","choices":["Explain an article without using a dictionary","Memorize the entire dictionary","Translate every word with an app","Take a formal examination"],"answer":0,"explanation":"まず辞書を使わずに内容を説明する describes their first activity."},
-      {"prompt":"What change has the narrator noticed?","choices":["Words checked after personal effort are easier to remember","They no longer make any mistakes","Studying alone has become unnecessary for everyone","Questions always prevent learning"],"answer":0,"explanation":"The last sentence says that thinking first and looking up words afterward has improved retention."}
+    "id": "read-n3-study",
+    "level": 3,
+    "title": "An online study group",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{一人|ひとり}で{日本語|にほんご}を{勉強|べんきょう}していたころは、{分|わ}からない{表現|ひょうげん}があると、すぐに{答|こた}えを{調|しら}べていた。しかし、それでは{自分|じぶん}の{考|かんが}えを{言葉|ことば}にする{練習|れんしゅう}が{足|た}りないと{感|かん}じた。\n\n{今|いま}は、{週|しゅう}に{一度|いちど}、オンラインの{勉強会|べんきょうかい}に{参加|さんか}している。{参加者|さんかしゃ}は{短|みじか}い{記事|きじ}を{読|よ}み、まず{辞書|じしょ}を{使|つか}わずに{内容|ないよう}を{説明|せつめい}する。その{後|あと}で、お{互|たが}いに{質問|しつもん}したり、{表現|ひょうげん}を{確|たし}かめたりする。{間違|まちが}えることもあるが、{自分|じぶん}で{考|かんが}えてから{調|しら}べた{言葉|ことば}は、{前|まえ}より{覚|おぼ}えやすくなった。",
+    "translation": "When I studied Japanese alone, I immediately looked up answers whenever I encountered an unfamiliar expression. But I felt this did not give me enough practice putting my thoughts into words. Now I attend an online study group once a week. Participants read a short article and first explain its content without a dictionary. Then they ask each other questions and check expressions. I make mistakes, but words I look up after thinking for myself are easier to remember than before.",
+    "glossary": [
+      {
+        "term": "表現",
+        "reading": "ひょうげん",
+        "meaning": "expression"
+      },
+      {
+        "term": "練習",
+        "reading": "れんしゅう",
+        "meaning": "practice"
+      },
+      {
+        "term": "参加者",
+        "reading": "さんかしゃ",
+        "meaning": "participant"
+      },
+      {
+        "term": "記事",
+        "reading": "きじ",
+        "meaning": "article"
+      },
+      {
+        "term": "内容",
+        "reading": "ないよう",
+        "meaning": "content"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What was missing from the narrator's previous study method?",
+        "choices": [
+          "Practice expressing their own thoughts",
+          "Access to any Japanese books",
+          "Enough time to look up answers",
+          "An internet connection at home"
+        ],
+        "answer": 0,
+        "explanation": "The first paragraph identifies a lack of practice putting one's own thoughts into words."
+      },
+      {
+        "prompt": "What do participants do before checking expressions?",
+        "choices": [
+          "Explain an article without using a dictionary",
+          "Memorize the entire dictionary",
+          "Translate every word with an app",
+          "Take a formal examination"
+        ],
+        "answer": 0,
+        "explanation": "まず辞書を使わずに内容を説明する describes their first activity."
+      },
+      {
+        "prompt": "What change has the narrator noticed?",
+        "choices": [
+          "Words checked after personal effort are easier to remember",
+          "They no longer make any mistakes",
+          "Studying alone has become unnecessary for everyone",
+          "Questions always prevent learning"
+        ],
+        "answer": 0,
+        "explanation": "The last sentence says that thinking first and looking up words afterward has improved retention."
+      }
     ]
   },
   {
-    "id":"read-n2-food","level":2,"title":"Reducing food waste","source":"Kanji Path","license":"CC0-1.0",
-    "text":"あるスーパーでは、{消費期限|しょうひきげん}が{近|ちか}づいた{食品|しょくひん}を{割引|わりびき}するだけでなく、{家庭|かてい}で{使|つか}い{切|き}るための{献立|こんだて}も{紹介|しょうかい}している。{安|やす}さにつられて{必要以上|ひつよういじょう}に{買|か}えば、{店|みせ}での{廃棄|はいき}が{減|へ}っても、{家庭|かてい}で{捨|す}てる{量|りょう}が{増|ふ}えかねないからだ。\n\n{店|みせ}は、{少人数|しょうにんずう}の{世帯|せたい}でも{買|か}いやすい{小分|こわ}けの{商品|しょうひん}を{増|ふ}やした。{包装|ほうそう}の{量|りょう}が{増|ふ}えるという{課題|かだい}はあるものの、{売|う}れ{残|のこ}りと{家庭|かてい}での{無駄|むだ}を{合|あ}わせて{減|へ}らすことを{目指|めざ}している。{食品|しょくひん}ロスへの{対策|たいさく}は、{一|ひと}つの{数字|すうじ}だけで{成果|せいか}を{判断|はんだん}せず、{流通|りゅうつう}から{食卓|しょくたく}までを{見渡|みわた}して{考|かんが}える{必要|ひつよう}がある。",
-    "translation":"A supermarket not only discounts food approaching its use-by date but also suggests menus to help households use it up. If people buy more than necessary because it is cheap, household waste may rise even if store waste falls. The store has increased smaller packages suitable for small households. Although this increases packaging, the aim is to reduce both unsold stock and household waste. Food-waste measures should be judged across the chain from distribution to the dining table, not by one number alone.",
-    "glossary":[{"term":"消費期限","reading":"しょうひきげん","meaning":"use-by date"},{"term":"廃棄","reading":"はいき","meaning":"disposal; discarding"},{"term":"世帯","reading":"せたい","meaning":"household"},{"term":"包装","reading":"ほうそう","meaning":"packaging"},{"term":"成果","reading":"せいか","meaning":"results; outcomes"},{"term":"流通","reading":"りゅうつう","meaning":"distribution"}],
-    "questions":[
-      {"prompt":"Why does the store suggest menus as well as discounts?","choices":["To help customers use food rather than transfer waste into homes","To make all customers buy the largest packages","To avoid checking use-by dates","To stop households from cooking"],"answer":0,"explanation":"The store wants discounted food to be used up; buying too much can merely move waste from the store to the household."},
-      {"prompt":"What trade-off accompanies smaller packages?","choices":["They can reduce food waste while increasing packaging","They remove every environmental concern","They always increase both types of food waste","They prevent small households from shopping"],"answer":0,"explanation":"The passage explicitly acknowledges increased packaging as a challenge despite the intended reduction in wasted food."},
-      {"prompt":"How does the author suggest evaluating these measures?","choices":["Consider effects from distribution through household consumption","Use only the amount discarded by the store","Count packaging and ignore food entirely","Judge success solely by sales revenue"],"answer":0,"explanation":"The conclusion calls for a broad view from 流通 to 食卓, rather than relying on a single figure."}
+    "id": "read-n2-food",
+    "level": 2,
+    "title": "Reducing food waste",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "あるスーパーでは、{消費期限|しょうひきげん}が{近|ちか}づいた{食品|しょくひん}を{割引|わりびき}するだけでなく、{家庭|かてい}で{使|つか}い{切|き}るための{献立|こんだて}も{紹介|しょうかい}している。{安|やす}さにつられて{必要以上|ひつよういじょう}に{買|か}えば、{店|みせ}での{廃棄|はいき}が{減|へ}っても、{家庭|かてい}で{捨|す}てる{量|りょう}が{増|ふ}えかねないからだ。\n\n{店|みせ}は、{少人数|しょうにんずう}の{世帯|せたい}でも{買|か}いやすい{小分|こわ}けの{商品|しょうひん}を{増|ふ}やした。{包装|ほうそう}の{量|りょう}が{増|ふ}えるという{課題|かだい}はあるものの、{売|う}れ{残|のこ}りと{家庭|かてい}での{無駄|むだ}を{合|あ}わせて{減|へ}らすことを{目指|めざ}している。{食品|しょくひん}ロスへの{対策|たいさく}は、{一|ひと}つの{数字|すうじ}だけで{成果|せいか}を{判断|はんだん}せず、{流通|りゅうつう}から{食卓|しょくたく}までを{見渡|みわた}して{考|かんが}える{必要|ひつよう}がある。",
+    "translation": "A supermarket not only discounts food approaching its use-by date but also suggests menus to help households use it up. If people buy more than necessary because it is cheap, household waste may rise even if store waste falls. The store has increased smaller packages suitable for small households. Although this increases packaging, the aim is to reduce both unsold stock and household waste. Food-waste measures should be judged across the chain from distribution to the dining table, not by one number alone.",
+    "glossary": [
+      {
+        "term": "消費期限",
+        "reading": "しょうひきげん",
+        "meaning": "use-by date"
+      },
+      {
+        "term": "廃棄",
+        "reading": "はいき",
+        "meaning": "disposal; discarding"
+      },
+      {
+        "term": "世帯",
+        "reading": "せたい",
+        "meaning": "household"
+      },
+      {
+        "term": "包装",
+        "reading": "ほうそう",
+        "meaning": "packaging"
+      },
+      {
+        "term": "成果",
+        "reading": "せいか",
+        "meaning": "results; outcomes"
+      },
+      {
+        "term": "流通",
+        "reading": "りゅうつう",
+        "meaning": "distribution"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Why does the store suggest menus as well as discounts?",
+        "choices": [
+          "To help customers use food rather than transfer waste into homes",
+          "To make all customers buy the largest packages",
+          "To avoid checking use-by dates",
+          "To stop households from cooking"
+        ],
+        "answer": 0,
+        "explanation": "The store wants discounted food to be used up; buying too much can merely move waste from the store to the household."
+      },
+      {
+        "prompt": "What trade-off accompanies smaller packages?",
+        "choices": [
+          "They can reduce food waste while increasing packaging",
+          "They remove every environmental concern",
+          "They always increase both types of food waste",
+          "They prevent small households from shopping"
+        ],
+        "answer": 0,
+        "explanation": "The passage explicitly acknowledges increased packaging as a challenge despite the intended reduction in wasted food."
+      },
+      {
+        "prompt": "How does the author suggest evaluating these measures?",
+        "choices": [
+          "Consider effects from distribution through household consumption",
+          "Use only the amount discarded by the store",
+          "Count packaging and ignore food entirely",
+          "Judge success solely by sales revenue"
+        ],
+        "answer": 0,
+        "explanation": "The conclusion calls for a broad view from 流通 to 食卓, rather than relying on a single figure."
+      }
     ]
   },
   {
-    "id":"read-n2-work","level":2,"title":"Flexibility and fair evaluation","source":"Kanji Path","license":"CC0-1.0",
-    "text":"{在宅勤務|ざいたくきんむ}を{導入|どうにゅう}した{企業|きぎょう}で、{社員|しゃいん}の{満足度|まんぞくど}が{上|あ}がった。ところが、{制度|せいど}を{利用|りよう}する{社員|しゃいん}ほど、{評価|ひょうか}が{低|ひく}い{傾向|けいこう}も{見|み}られた。{成果|せいか}に{大|おお}きな{差|さ}はなくても、{上司|じょうし}と{顔|かお}を{合|あ}わせる{機会|きかい}が{少|すく}ないため、{働|はたら}きぶりが{伝|つた}わりにくかったのである。\n\n{会社|かいしゃ}はこの{問題|もんだい}を{受|う}け、{出社|しゅっしゃ}している{時間|じかん}ではなく、{事前|じぜん}に{合意|ごうい}した{目標|もくひょう}と、その{達成|たっせい}までの{過程|かてい}を{確認|かくにん}する{方法|ほうほう}に{改|あらた}めた。{制度|せいど}を{設|もう}ければ{自動的|じどうてき}に{公平|こうへい}になるわけではない。{利用|りよう}した{人|ひと}が{不利|ふり}にならないよう、{評価|ひょうか}の{仕組|しく}みまで{見直|みなお}してこそ、{柔軟|じゅうなん}な{働|はたら}き{方|かた}が{実際|じっさい}の{選択肢|せんたくし}になる。",
-    "translation":"At a company that introduced working from home, employee satisfaction rose. Yet employees using the scheme tended to receive lower evaluations. Even without major differences in results, less face-to-face contact with supervisors made their work harder to see. The company changed its method to assess agreed goals and the process of reaching them, rather than time in the office. Merely introducing a policy does not automatically create fairness. Flexible work becomes a real option only when evaluation systems are revised so that users are not disadvantaged.",
-    "glossary":[{"term":"在宅勤務","reading":"ざいたくきんむ","meaning":"working from home"},{"term":"評価","reading":"ひょうか","meaning":"evaluation"},{"term":"傾向","reading":"けいこう","meaning":"tendency"},{"term":"合意","reading":"ごうい","meaning":"agreement"},{"term":"過程","reading":"かてい","meaning":"process"},{"term":"公平","reading":"こうへい","meaning":"fairness"}],
-    "questions":[
-      {"prompt":"Why did remote workers tend to receive lower evaluations?","choices":["Their contributions were less visible to supervisors","Their results were proven to be much worse","They refused all agreed goals","The scheme reduced satisfaction for everyone"],"answer":0,"explanation":"The text says results did not differ greatly, but fewer meetings with supervisors made employees' work less visible."},
-      {"prompt":"What did the company decide to assess instead of office attendance?","choices":["Agreed goals and the process of achieving them","Only the number of messages sent","Only the supervisor's first impression","The distance between home and the office"],"answer":0,"explanation":"事前に合意した目標と、その達成までの過程 identifies both agreed goals and the path toward them."},
-      {"prompt":"What is the author's central claim?","choices":["Flexible policies need fair evaluation systems to become genuine options","Working from home must always be compulsory","Creating a policy alone guarantees fairness","Office attendance is the only reliable measure of work"],"answer":0,"explanation":"The conclusion argues that revising the evaluation system is necessary to prevent users of the policy from being disadvantaged."}
+    "id": "read-n2-work",
+    "level": 2,
+    "title": "Flexibility and fair evaluation",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{在宅勤務|ざいたくきんむ}を{導入|どうにゅう}した{企業|きぎょう}で、{社員|しゃいん}の{満足度|まんぞくど}が{上|あ}がった。ところが、{制度|せいど}を{利用|りよう}する{社員|しゃいん}ほど、{評価|ひょうか}が{低|ひく}い{傾向|けいこう}も{見|み}られた。{成果|せいか}に{大|おお}きな{差|さ}はなくても、{上司|じょうし}と{顔|かお}を{合|あ}わせる{機会|きかい}が{少|すく}ないため、{働|はたら}きぶりが{伝|つた}わりにくかったのである。\n\n{会社|かいしゃ}はこの{問題|もんだい}を{受|う}け、{出社|しゅっしゃ}している{時間|じかん}ではなく、{事前|じぜん}に{合意|ごうい}した{目標|もくひょう}と、その{達成|たっせい}までの{過程|かてい}を{確認|かくにん}する{方法|ほうほう}に{改|あらた}めた。{制度|せいど}を{設|もう}ければ{自動的|じどうてき}に{公平|こうへい}になるわけではない。{利用|りよう}した{人|ひと}が{不利|ふり}にならないよう、{評価|ひょうか}の{仕組|しく}みまで{見直|みなお}してこそ、{柔軟|じゅうなん}な{働|はたら}き{方|かた}が{実際|じっさい}の{選択肢|せんたくし}になる。",
+    "translation": "At a company that introduced working from home, employee satisfaction rose. Yet employees using the scheme tended to receive lower evaluations. Even without major differences in results, less face-to-face contact with supervisors made their work harder to see. The company changed its method to assess agreed goals and the process of reaching them, rather than time in the office. Merely introducing a policy does not automatically create fairness. Flexible work becomes a real option only when evaluation systems are revised so that users are not disadvantaged.",
+    "glossary": [
+      {
+        "term": "在宅勤務",
+        "reading": "ざいたくきんむ",
+        "meaning": "working from home"
+      },
+      {
+        "term": "評価",
+        "reading": "ひょうか",
+        "meaning": "evaluation"
+      },
+      {
+        "term": "傾向",
+        "reading": "けいこう",
+        "meaning": "tendency"
+      },
+      {
+        "term": "合意",
+        "reading": "ごうい",
+        "meaning": "agreement"
+      },
+      {
+        "term": "過程",
+        "reading": "かてい",
+        "meaning": "process"
+      },
+      {
+        "term": "公平",
+        "reading": "こうへい",
+        "meaning": "fairness"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Why did remote workers tend to receive lower evaluations?",
+        "choices": [
+          "Their contributions were less visible to supervisors",
+          "Their results were proven to be much worse",
+          "They refused all agreed goals",
+          "The scheme reduced satisfaction for everyone"
+        ],
+        "answer": 0,
+        "explanation": "The text says results did not differ greatly, but fewer meetings with supervisors made employees' work less visible."
+      },
+      {
+        "prompt": "What did the company decide to assess instead of office attendance?",
+        "choices": [
+          "Agreed goals and the process of achieving them",
+          "Only the number of messages sent",
+          "Only the supervisor's first impression",
+          "The distance between home and the office"
+        ],
+        "answer": 0,
+        "explanation": "事前に合意した目標と、その達成までの過程 identifies both agreed goals and the path toward them."
+      },
+      {
+        "prompt": "What is the author's central claim?",
+        "choices": [
+          "Flexible policies need fair evaluation systems to become genuine options",
+          "Working from home must always be compulsory",
+          "Creating a policy alone guarantees fairness",
+          "Office attendance is the only reliable measure of work"
+        ],
+        "answer": 0,
+        "explanation": "The conclusion argues that revising the evaluation system is necessary to prevent users of the policy from being disadvantaged."
+      }
     ]
   },
   {
-    "id":"read-n1-metrics","level":1,"title":"What the numbers leave out","source":"Kanji Path","license":"CC0-1.0",
-    "text":"{地域|ちいき}の{活性化|かっせいか}を{語|かた}る{際|さい}、{観光客数|かんこうきゃくすう}や{売上高|うりあげだか}が{成果|せいか}の{指標|しひょう}として{掲|かか}げられる。{比較|ひかく}しやすい{数字|すうじ}が{議論|ぎろん}を{助|たす}けることは{確|たし}かだ。しかし、{数値|すうち}の{上昇|じょうしょう}をもって、{住民|じゅうみん}の{暮|く}らしが{豊|ゆた}かになったと{断定|だんてい}することはできない。{来訪者|らいほうしゃ}の{増加|ぞうか}に{伴|ともな}って、{静|しず}かな{生活|せいかつ}や{日常|にちじょう}の{移動|いどう}のしやすさが{損|そこ}なわれる{場合|ばあい}もあるからだ。\n\nだからといって、{測定|そくてい}そのものを{否定|ひてい}すべきだというのではない。{問|と}われるべきは、{何|なに}を{測|はか}り、{誰|だれ}の{経験|けいけん}を{見落|みお}としているのかである。{指標|しひょう}は{現実|げんじつ}を{理解|りかい}するための{手掛かり|てがかり}であって、{現実|げんじつ}そのものではない。{数値|すうち}に{表|あらわ}れにくい{声|こえ}を{聞|き}き{取|と}り、{必要|ひつよう}に{応|おう}じて{指標|しひょう}を{組|く}み{替|か}える{姿勢|しせい}があってこそ、{測定|そくてい}は{目的|もくてき}に{取|と}って{代|か}わることなく、{地域|ちいき}のために{機能|きのう}する。",
-    "translation":"Tourist numbers and sales are often presented as measures of regional revitalization. Comparable numbers certainly help discussion. Yet an increase does not prove residents' lives have become richer: more visitors can undermine quiet living and convenient everyday travel. This is not an argument against measurement itself. We should ask what is being measured and whose experience is overlooked. Indicators are clues for understanding reality, not reality itself. Only by listening to voices that numbers miss and revising indicators when necessary can measurement serve the community without replacing the underlying purpose.",
-    "glossary":[{"term":"活性化","reading":"かっせいか","meaning":"revitalization"},{"term":"指標","reading":"しひょう","meaning":"indicator; metric"},{"term":"断定","reading":"だんてい","meaning":"definite assertion"},{"term":"測定","reading":"そくてい","meaning":"measurement"},{"term":"手掛かり","reading":"てがかり","meaning":"clue; lead"},{"term":"姿勢","reading":"しせい","meaning":"attitude; approach"}],
-    "questions":[
-      {"prompt":"What does the author dispute about higher tourist numbers?","choices":["That they alone prove an improvement in residents' lives","That they can be counted at all","That they ever increase local sales","That they are relevant to any discussion"],"answer":0,"explanation":"The author accepts that figures help discussion but rejects treating rising figures as conclusive evidence of richer lives."},
-      {"prompt":"What does 'indicators are clues, not reality itself' imply?","choices":["Indicators provide a partial view that should be checked against lived experience","Indicators are always deliberately false","Only unmeasurable opinions deserve consideration","Every indicator should be replaced by tourist numbers"],"answer":0,"explanation":"The surrounding sentences ask whose experiences are overlooked and call for listening to voices not reflected in numbers."},
-      {"prompt":"Which approach would the author most likely support?","choices":["Revise metrics while consulting residents about overlooked effects","Maximize visitor totals regardless of local consequences","Abandon all measurement permanently","Retain existing metrics even when they distort priorities"],"answer":0,"explanation":"The conclusion supports listening, revising indicators, and keeping measurement subordinate to the community's actual purposes."}
+    "id": "read-n1-metrics",
+    "level": 1,
+    "title": "What the numbers leave out",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{地域|ちいき}の{活性化|かっせいか}を{語|かた}る{際|さい}、{観光客数|かんこうきゃくすう}や{売上高|うりあげだか}が{成果|せいか}の{指標|しひょう}として{掲|かか}げられる。{比較|ひかく}しやすい{数字|すうじ}が{議論|ぎろん}を{助|たす}けることは{確|たし}かだ。しかし、{数値|すうち}の{上昇|じょうしょう}をもって、{住民|じゅうみん}の{暮|く}らしが{豊|ゆた}かになったと{断定|だんてい}することはできない。{来訪者|らいほうしゃ}の{増加|ぞうか}に{伴|ともな}って、{静|しず}かな{生活|せいかつ}や{日常|にちじょう}の{移動|いどう}のしやすさが{損|そこ}なわれる{場合|ばあい}もあるからだ。\n\nだからといって、{測定|そくてい}そのものを{否定|ひてい}すべきだというのではない。{問|と}われるべきは、{何|なに}を{測|はか}り、{誰|だれ}の{経験|けいけん}を{見落|みお}としているのかである。{指標|しひょう}は{現実|げんじつ}を{理解|りかい}するための{手掛かり|てがかり}であって、{現実|げんじつ}そのものではない。{数値|すうち}に{表|あらわ}れにくい{声|こえ}を{聞|き}き{取|と}り、{必要|ひつよう}に{応|おう}じて{指標|しひょう}を{組|く}み{替|か}える{姿勢|しせい}があってこそ、{測定|そくてい}は{目的|もくてき}に{取|と}って{代|か}わることなく、{地域|ちいき}のために{機能|きのう}する。",
+    "translation": "Tourist numbers and sales are often presented as measures of regional revitalization. Comparable numbers certainly help discussion. Yet an increase does not prove residents' lives have become richer: more visitors can undermine quiet living and convenient everyday travel. This is not an argument against measurement itself. We should ask what is being measured and whose experience is overlooked. Indicators are clues for understanding reality, not reality itself. Only by listening to voices that numbers miss and revising indicators when necessary can measurement serve the community without replacing the underlying purpose.",
+    "glossary": [
+      {
+        "term": "活性化",
+        "reading": "かっせいか",
+        "meaning": "revitalization"
+      },
+      {
+        "term": "指標",
+        "reading": "しひょう",
+        "meaning": "indicator; metric"
+      },
+      {
+        "term": "断定",
+        "reading": "だんてい",
+        "meaning": "definite assertion"
+      },
+      {
+        "term": "測定",
+        "reading": "そくてい",
+        "meaning": "measurement"
+      },
+      {
+        "term": "手掛かり",
+        "reading": "てがかり",
+        "meaning": "clue; lead"
+      },
+      {
+        "term": "姿勢",
+        "reading": "しせい",
+        "meaning": "attitude; approach"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What does the author dispute about higher tourist numbers?",
+        "choices": [
+          "That they alone prove an improvement in residents' lives",
+          "That they can be counted at all",
+          "That they ever increase local sales",
+          "That they are relevant to any discussion"
+        ],
+        "answer": 0,
+        "explanation": "The author accepts that figures help discussion but rejects treating rising figures as conclusive evidence of richer lives."
+      },
+      {
+        "prompt": "What does 'indicators are clues, not reality itself' imply?",
+        "choices": [
+          "Indicators provide a partial view that should be checked against lived experience",
+          "Indicators are always deliberately false",
+          "Only unmeasurable opinions deserve consideration",
+          "Every indicator should be replaced by tourist numbers"
+        ],
+        "answer": 0,
+        "explanation": "The surrounding sentences ask whose experiences are overlooked and call for listening to voices not reflected in numbers."
+      },
+      {
+        "prompt": "Which approach would the author most likely support?",
+        "choices": [
+          "Revise metrics while consulting residents about overlooked effects",
+          "Maximize visitor totals regardless of local consequences",
+          "Abandon all measurement permanently",
+          "Retain existing metrics even when they distort priorities"
+        ],
+        "answer": 0,
+        "explanation": "The conclusion supports listening, revising indicators, and keeping measurement subordinate to the community's actual purposes."
+      }
     ]
   },
   {
-    "id":"read-n1-choice","level":1,"title":"Convenience and the freedom to choose","source":"Kanji Path","license":"CC0-1.0",
-    "text":"{動画|どうが}や{記事|きじ}を{勧|すす}める{仕組|しく}みは、{私|わたし}たちが{探|さが}す{手間|てま}を{省|はぶ}いてくれる。その{便利|べんり}さゆえに、{表示|ひょうじ}されたものの{中|なか}から{選|えら}ぶことを、{自分|じぶん}の{関心|かんしん}に{基|もと}づく{自由|じゆう}な{選択|せんたく}と{受|う}け{止|と}めがちだ。だが、{選択肢|せんたくし}がどのように{絞|しぼ}られたかが{見|み}えなければ、{選|えら}んだ{結果|けっか}だけから、その{自由|じゆう}の{程度|ていど}を{判断|はんだん}することはできない。\n\n{未知|みち}の{分野|ぶんや}に{触|ふ}れる{機会|きかい}まで{減|へ}ってしまえば、{過去|かこ}の{好|この}みが{将来|しょうらい}の{関心|かんしん}を{狭|せば}めることにもなりかねない。{推薦|すいせん}を{一律|いちりつ}に{拒|こば}む{必要|ひつよう}はないが、その{理由|りゆう}を{確|たし}かめたり、あえて{別|べつ}の{経路|けいろ}で{探|さが}したりする{余地|よち}は{残|のこ}しておきたい。{便利|べんり}な{仕組|しく}みを{使|つか}いこなすとは、すべてを{任|まか}せることではなく、{任|まか}せる{範囲|はんい}を{自分|じぶん}で{選|えら}び{直|なお}せることであろう。",
-    "translation":"Systems recommending videos and articles spare us the effort of searching. Their convenience encourages us to regard choosing among displayed items as a free choice based on our interests. Yet without seeing how the options were narrowed, we cannot judge that freedom from the chosen result alone. If exposure to unfamiliar fields also declines, past preferences may narrow future interests. There is no need to reject all recommendations, but we should retain room to examine their reasons and deliberately explore other routes. Mastering a convenient system means being able to reconsider what we entrust to it, rather than entrusting everything.",
-    "glossary":[{"term":"手間","reading":"てま","meaning":"time and effort"},{"term":"選択肢","reading":"せんたくし","meaning":"available option"},{"term":"未知","reading":"みち","meaning":"unknown; unfamiliar"},{"term":"推薦","reading":"すいせん","meaning":"recommendation"},{"term":"一律","reading":"いちりつ","meaning":"uniformly; across the board"},{"term":"余地","reading":"よち","meaning":"room; scope"}],
-    "questions":[
-      {"prompt":"Why is choosing from displayed recommendations not sufficient evidence of freedom?","choices":["The process narrowing the available options may be hidden","The user never actually makes a selection","Every recommendation is chosen randomly","All recommended content is necessarily wrong"],"answer":0,"explanation":"The first paragraph distinguishes choosing a result from understanding how the choices were selected for display."},
-      {"prompt":"What risk does the author identify in relying on past preferences?","choices":["They may reduce exposure to unfamiliar fields and limit future interests","They guarantee a wider range of interests","They prevent systems from making any recommendations","They make every search take more time"],"answer":0,"explanation":"The text warns that fewer encounters with unfamiliar fields can let past preferences narrow future interests."},
-      {"prompt":"What does the author mean by mastering a convenient system?","choices":["Retaining the ability to decide and revise how much to delegate","Rejecting every automated recommendation without exception","Allowing the system to determine every future interest","Choosing only material that matches past behavior"],"answer":0,"explanation":"The final sentence defines effective use as being able to choose again the scope of what one leaves to the system."}
+    "id": "read-n1-choice",
+    "level": 1,
+    "title": "Convenience and the freedom to choose",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{動画|どうが}や{記事|きじ}を{勧|すす}める{仕組|しく}みは、{私|わたし}たちが{探|さが}す{手間|てま}を{省|はぶ}いてくれる。その{便利|べんり}さゆえに、{表示|ひょうじ}されたものの{中|なか}から{選|えら}ぶことを、{自分|じぶん}の{関心|かんしん}に{基|もと}づく{自由|じゆう}な{選択|せんたく}と{受|う}け{止|と}めがちだ。だが、{選択肢|せんたくし}がどのように{絞|しぼ}られたかが{見|み}えなければ、{選|えら}んだ{結果|けっか}だけから、その{自由|じゆう}の{程度|ていど}を{判断|はんだん}することはできない。\n\n{未知|みち}の{分野|ぶんや}に{触|ふ}れる{機会|きかい}まで{減|へ}ってしまえば、{過去|かこ}の{好|この}みが{将来|しょうらい}の{関心|かんしん}を{狭|せば}めることにもなりかねない。{推薦|すいせん}を{一律|いちりつ}に{拒|こば}む{必要|ひつよう}はないが、その{理由|りゆう}を{確|たし}かめたり、あえて{別|べつ}の{経路|けいろ}で{探|さが}したりする{余地|よち}は{残|のこ}しておきたい。{便利|べんり}な{仕組|しく}みを{使|つか}いこなすとは、すべてを{任|まか}せることではなく、{任|まか}せる{範囲|はんい}を{自分|じぶん}で{選|えら}び{直|なお}せることであろう。",
+    "translation": "Systems recommending videos and articles spare us the effort of searching. Their convenience encourages us to regard choosing among displayed items as a free choice based on our interests. Yet without seeing how the options were narrowed, we cannot judge that freedom from the chosen result alone. If exposure to unfamiliar fields also declines, past preferences may narrow future interests. There is no need to reject all recommendations, but we should retain room to examine their reasons and deliberately explore other routes. Mastering a convenient system means being able to reconsider what we entrust to it, rather than entrusting everything.",
+    "glossary": [
+      {
+        "term": "手間",
+        "reading": "てま",
+        "meaning": "time and effort"
+      },
+      {
+        "term": "選択肢",
+        "reading": "せんたくし",
+        "meaning": "available option"
+      },
+      {
+        "term": "未知",
+        "reading": "みち",
+        "meaning": "unknown; unfamiliar"
+      },
+      {
+        "term": "推薦",
+        "reading": "すいせん",
+        "meaning": "recommendation"
+      },
+      {
+        "term": "一律",
+        "reading": "いちりつ",
+        "meaning": "uniformly; across the board"
+      },
+      {
+        "term": "余地",
+        "reading": "よち",
+        "meaning": "room; scope"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Why is choosing from displayed recommendations not sufficient evidence of freedom?",
+        "choices": [
+          "The process narrowing the available options may be hidden",
+          "The user never actually makes a selection",
+          "Every recommendation is chosen randomly",
+          "All recommended content is necessarily wrong"
+        ],
+        "answer": 0,
+        "explanation": "The first paragraph distinguishes choosing a result from understanding how the choices were selected for display."
+      },
+      {
+        "prompt": "What risk does the author identify in relying on past preferences?",
+        "choices": [
+          "They may reduce exposure to unfamiliar fields and limit future interests",
+          "They guarantee a wider range of interests",
+          "They prevent systems from making any recommendations",
+          "They make every search take more time"
+        ],
+        "answer": 0,
+        "explanation": "The text warns that fewer encounters with unfamiliar fields can let past preferences narrow future interests."
+      },
+      {
+        "prompt": "What does the author mean by mastering a convenient system?",
+        "choices": [
+          "Retaining the ability to decide and revise how much to delegate",
+          "Rejecting every automated recommendation without exception",
+          "Allowing the system to determine every future interest",
+          "Choosing only material that matches past behavior"
+        ],
+        "answer": 0,
+        "explanation": "The final sentence defines effective use as being able to choose again the scope of what one leaves to the system."
+      }
+    ]
+  },
+  {
+    "id": "read-n5-cafe-dialogue",
+    "level": 5,
+    "title": "Ordering at a café",
+    "genre": "Dialogue",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{店員|てんいん}：いらっしゃいませ。\n{客|きゃく}：パンとコーヒーをください。\n{店員|てんいん}：コーヒーは{温|あたた}かいのと{冷|つめ}たいのがあります。\n{客|きゃく}：{温|あたた}かいのをお{願|ねが}いします。\n{店員|てんいん}：ここで{食|た}べますか。\n{客|きゃく}：いいえ、{公園|こうえん}で{食|た}べます。{友達|ともだち}が{公園|こうえん}にいます。",
+    "translation": "Clerk: Welcome. Customer: Bread and coffee, please. Clerk: We have hot and cold coffee. Customer: Hot, please. Clerk: Will you eat here? Customer: No, I will eat in the park. My friend is in the park.",
+    "glossary": [
+      {
+        "term": "店員",
+        "reading": "てんいん",
+        "meaning": "clerk"
+      },
+      {
+        "term": "客",
+        "reading": "きゃく",
+        "meaning": "customer"
+      },
+      {
+        "term": "公園",
+        "reading": "こうえん",
+        "meaning": "park"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What does the customer order?",
+        "choices": [
+          "Bread and coffee",
+          "Tea only",
+          "Rice and soup",
+          "Cold water"
+        ],
+        "answer": 0,
+        "explanation": "The customer asks for パンとコーヒー."
+      },
+      {
+        "prompt": "Which coffee do they choose?",
+        "choices": [
+          "Hot coffee",
+          "Cold coffee",
+          "No coffee",
+          "Coffee with ice cream"
+        ],
+        "answer": 0,
+        "explanation": "温かいの means the hot one."
+      },
+      {
+        "prompt": "Where will the customer eat?",
+        "choices": [
+          "In the park",
+          "In the café",
+          "At school",
+          "On a train"
+        ],
+        "answer": 0,
+        "explanation": "The customer says 公園で食べます."
+      }
+    ]
+  },
+  {
+    "id": "read-n5-meeting-message",
+    "level": 5,
+    "title": "A message about tomorrow",
+    "genre": "Message",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{明日|あした}は{駅|えき}の{前|まえ}で{会|あ}いましょう。{十時|じゅうじ}ではなく、{十一時|じゅういちじ}にお{願|ねが}いします。{朝|あさ}、{母|はは}と{病院|びょういん}に{行|い}きますから。{駅|えき}から{一緒|いっしょ}にバスに{乗|の}りましょう。{昼|ひる}ごはんは{私|わたし}が{作|つく}ります。{飲|の}み{物|もの}を{持|も}ってきてください。",
+    "translation": "Let’s meet in front of the station tomorrow. Please come at eleven, not ten. I am going to the hospital with my mother in the morning. Let’s take the bus together from the station. I will make lunch. Please bring something to drink.",
+    "glossary": [
+      {
+        "term": "明日",
+        "reading": "あした",
+        "meaning": "tomorrow"
+      },
+      {
+        "term": "母",
+        "reading": "はは",
+        "meaning": "my mother"
+      },
+      {
+        "term": "一緒",
+        "reading": "いっしょ",
+        "meaning": "together"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What time should they meet?",
+        "choices": [
+          "Eleven",
+          "Ten",
+          "Nine",
+          "Twelve"
+        ],
+        "answer": 0,
+        "explanation": "十一時 replaces the earlier time of 十時."
+      },
+      {
+        "prompt": "Why does the writer need a later time?",
+        "choices": [
+          "They will go to the hospital with their mother",
+          "They must cook at the station",
+          "The bus is broken",
+          "Their friend is working"
+        ],
+        "answer": 0,
+        "explanation": "The morning plan is 母と病院に行きます."
+      },
+      {
+        "prompt": "What should the reader bring?",
+        "choices": [
+          "A drink",
+          "A bus ticket for the writer",
+          "Lunch for everyone",
+          "A book"
+        ],
+        "answer": 0,
+        "explanation": "飲み物を持ってきてください asks them to bring a drink."
+      }
+    ]
+  },
+  {
+    "id": "read-n5-lunch-routine",
+    "level": 5,
+    "title": "Lunch on a school day",
+    "genre": "Short article",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{私|わたし}は{毎日|まいにち}、{学校|がっこう}にお{弁当|べんとう}を{持|も}っていきます。{朝|あさ}、{父|ちち}と{作|つく}ります。{父|ちち}は{野菜|やさい}を{切|き}ります。{私|わたし}は{卵|たまご}を{焼|や}きます。{昼|ひる}は{友達|ともだち}と{教室|きょうしつ}で{食|た}べます。{金曜日|きんようび}だけはパンを{買|か}います。{朝|あさ}、{早|はや}く{家|いえ}を{出|で}るからです。",
+    "translation": "I take a packed lunch to school every day. I make it with my father in the morning. He cuts vegetables and I cook eggs. At lunchtime I eat with friends in the classroom. Only on Fridays do I buy bread, because I leave home early.",
+    "glossary": [
+      {
+        "term": "弁当",
+        "reading": "べんとう",
+        "meaning": "packed lunch"
+      },
+      {
+        "term": "野菜",
+        "reading": "やさい",
+        "meaning": "vegetables"
+      },
+      {
+        "term": "教室",
+        "reading": "きょうしつ",
+        "meaning": "classroom"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Who helps make lunch?",
+        "choices": [
+          "The narrator’s father",
+          "The teacher",
+          "A café worker",
+          "A classmate"
+        ],
+        "answer": 0,
+        "explanation": "The narrator says 父と作ります."
+      },
+      {
+        "prompt": "What does the narrator cook?",
+        "choices": [
+          "Eggs",
+          "Vegetables",
+          "Fish",
+          "Bread"
+        ],
+        "answer": 0,
+        "explanation": "私 is followed by 卵を焼きます."
+      },
+      {
+        "prompt": "Why is Friday different?",
+        "choices": [
+          "The narrator leaves home early",
+          "The school is closed",
+          "The father buys lunch",
+          "Friends dislike eggs"
+        ],
+        "answer": 0,
+        "explanation": "早く家を出る explains why the narrator buys bread."
+      }
+    ]
+  },
+  {
+    "id": "read-n4-lost-umbrella",
+    "level": 4,
+    "title": "Looking for an umbrella",
+    "genre": "Dialogue",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{受付|うけつけ}：どんな{傘|かさ}をなくしたんですか。\n{学生|がくせい}：{青|あお}くて、{持|も}つところに{名前|なまえ}が{書|か}いてあります。\n{受付|うけつけ}：この{傘|かさ}ですか。{昨日|きのう}、{食堂|しょくどう}で{見|み}つかったそうです。\n{学生|がくせい}：そうです。ありがとうございます。\n{受付|うけつけ}：ここに{名前|なまえ}を{書|か}いてから、お{持|も}ちください。",
+    "translation": "Receptionist: What kind of umbrella did you lose? Student: A blue one with my name written on the handle. Receptionist: Is it this one? It was apparently found in the cafeteria yesterday. Student: Yes, thank you. Receptionist: Please write your name here before taking it.",
+    "glossary": [
+      {
+        "term": "受付",
+        "reading": "うけつけ",
+        "meaning": "reception"
+      },
+      {
+        "term": "傘",
+        "reading": "かさ",
+        "meaning": "umbrella"
+      },
+      {
+        "term": "食堂",
+        "reading": "しょくどう",
+        "meaning": "cafeteria"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "How can the student identify the umbrella?",
+        "choices": [
+          "It is blue and has their name on the handle",
+          "It is red with no name",
+          "It has a broken tip",
+          "It is the smallest umbrella"
+        ],
+        "answer": 0,
+        "explanation": "青くて and 名前が書いてあります identify it."
+      },
+      {
+        "prompt": "Where was it found?",
+        "choices": [
+          "In the cafeteria",
+          "In the classroom",
+          "At a bus stop",
+          "In the library"
+        ],
+        "answer": 0,
+        "explanation": "The receptionist says 食堂で見つかったそうです."
+      },
+      {
+        "prompt": "What must the student do first?",
+        "choices": [
+          "Write their name",
+          "Pay a fee",
+          "Call their teacher",
+          "Buy an umbrella"
+        ],
+        "answer": 0,
+        "explanation": "書いてから means to write the name before taking it."
+      }
+    ]
+  },
+  {
+    "id": "read-n4-pool-notice",
+    "level": 4,
+    "title": "A change to swimming practice",
+    "genre": "Notice",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{今週|こんしゅう}の{水泳|すいえい}{教室|きょうしつ}について。プールの{機械|きかい}を{直|なお}すため、{土曜日|どようび}の{午前|ごぜん}の{教室|きょうしつ}はありません。{同|おな}じ{日|ひ}の{午後|ごご}{三時|さんじ}からは、いつもどおり{行|おこな}います。{午前|ごぜん}に{来|く}る{予定|よてい}だった{方|かた}は、{金曜日|きんようび}までに{電話|でんわ}してください。{別|べつ}の{日|ひ}に{参加|さんか}できます。",
+    "translation": "About this week’s swimming classes: Saturday morning’s class is cancelled to repair pool equipment. Classes from three that afternoon will be held as usual. People who planned to attend in the morning should call by Friday. They can attend on another day.",
+    "glossary": [
+      {
+        "term": "水泳",
+        "reading": "すいえい",
+        "meaning": "swimming"
+      },
+      {
+        "term": "機械",
+        "reading": "きかい",
+        "meaning": "machine; equipment"
+      },
+      {
+        "term": "予定",
+        "reading": "よてい",
+        "meaning": "plan"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Which class is cancelled?",
+        "choices": [
+          "Saturday morning",
+          "Saturday at three",
+          "Friday evening",
+          "Every class this week"
+        ],
+        "answer": 0,
+        "explanation": "土曜日の午前の教室はありません identifies the cancellation."
+      },
+      {
+        "prompt": "Why is it cancelled?",
+        "choices": [
+          "Equipment needs repair",
+          "The teacher is on holiday",
+          "No one registered",
+          "The pool is too crowded"
+        ],
+        "answer": 0,
+        "explanation": "機械を直すため gives the reason."
+      },
+      {
+        "prompt": "What should morning participants do?",
+        "choices": [
+          "Call by Friday",
+          "Arrive before noon Saturday",
+          "Send a letter next week",
+          "Pay for two lessons"
+        ],
+        "answer": 0,
+        "explanation": "金曜日までに電話してください is the instruction."
+      }
+    ]
+  },
+  {
+    "id": "read-n4-used-books",
+    "level": 4,
+    "title": "Finding books again",
+    "genre": "Short article",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{部屋|へや}を{片付|かたづ}けていたら、{子供|こども}のころに{読|よ}んだ{本|ほん}が{出|で}てきた。もう{読|よ}まないと{思|おも}って、{最初|さいしょ}は{売|う}るつもりだった。しかし、{一冊|いっさつ}{開|ひら}くと、{中|なか}に{昔|むかし}の{友達|ともだち}からの{手紙|てがみ}が{入|はい}っていた。その{手紙|てがみ}を{読|よ}んで、{本|ほん}だけでなく、{思|おも}い{出|で}も{残|のこ}っていることに{気|き}が{付|つ}いた。{全部|ぜんぶ}ではなく、{三冊|さんさつ}だけ{残|のこ}すことにした。",
+    "translation": "While tidying my room, I found books I had read as a child. At first I planned to sell them because I thought I would not read them again. But when I opened one, I found a letter from an old friend inside. Reading it made me realize the books held memories too. I decided to keep just three rather than all of them.",
+    "glossary": [
+      {
+        "term": "部屋",
+        "reading": "へや",
+        "meaning": "room"
+      },
+      {
+        "term": "手紙",
+        "reading": "てがみ",
+        "meaning": "letter"
+      },
+      {
+        "term": "三冊",
+        "reading": "さんさつ",
+        "meaning": "three books"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What was the original plan?",
+        "choices": [
+          "Sell the books",
+          "Give every book to a friend",
+          "Read them at school",
+          "Buy more books"
+        ],
+        "answer": 0,
+        "explanation": "最初は売るつもりだった states the first plan."
+      },
+      {
+        "prompt": "What changed the narrator’s mind?",
+        "choices": [
+          "Finding a letter from an old friend",
+          "Learning the books were expensive",
+          "Receiving new shelves",
+          "Finding an exam paper"
+        ],
+        "answer": 0,
+        "explanation": "The letter prompted the realization about memories."
+      },
+      {
+        "prompt": "How many books does the narrator keep?",
+        "choices": [
+          "Three",
+          "One",
+          "All of them",
+          "None"
+        ],
+        "answer": 0,
+        "explanation": "三冊だけ means only three books."
+      }
+    ]
+  },
+  {
+    "id": "read-n3-work-schedule",
+    "level": 3,
+    "title": "Negotiating a shift",
+    "genre": "Dialogue",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{店長|てんちょう}：{来週|らいしゅう}の{月曜日|げつようび}、{夕方|ゆうがた}まで{働|はたら}いてもらえますか。\n{店員|てんいん}：すみません。その{日|ひ}は{授業|じゅぎょう}があるので、{午後|ごご}は{難|むずか}しいです。{火曜日|かようび}なら{一日中|いちにちじゅう}{働|はたら}けます。\n{店長|てんちょう}：では、{月曜日|げつようび}の{午後|ごご}は{私|わたし}が{入|はい}ります。{火曜日|かようび}をお{願|ねが}いします。\n{店員|てんいん}：{分|わ}かりました。{予定|よてい}を{変更|へんこう}しておきます。",
+    "translation": "Manager: Could you work until evening next Monday? Employee: Sorry, I have classes that day, so the afternoon is difficult. I can work all day Tuesday. Manager: Then I will cover Monday afternoon. Please work Tuesday. Employee: Understood. I will update my schedule.",
+    "glossary": [
+      {
+        "term": "店長",
+        "reading": "てんちょう",
+        "meaning": "store manager"
+      },
+      {
+        "term": "授業",
+        "reading": "じゅぎょう",
+        "meaning": "class; lesson"
+      },
+      {
+        "term": "変更",
+        "reading": "へんこう",
+        "meaning": "change"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Why can’t the employee work Monday afternoon?",
+        "choices": [
+          "They have class",
+          "They are travelling",
+          "The shop is closed",
+          "They are ill"
+        ],
+        "answer": 0,
+        "explanation": "授業があるので gives the reason."
+      },
+      {
+        "prompt": "Who will cover Monday afternoon?",
+        "choices": [
+          "The manager",
+          "A new employee",
+          "The employee’s teacher",
+          "Nobody"
+        ],
+        "answer": 0,
+        "explanation": "私 refers to the manager speaking."
+      },
+      {
+        "prompt": "What will the employee do?",
+        "choices": [
+          "Work Tuesday and update the schedule",
+          "Work both afternoons",
+          "Cancel Tuesday’s shift",
+          "Leave the job"
+        ],
+        "answer": 0,
+        "explanation": "Tuesday is agreed and the employee will change the schedule."
+      }
+    ]
+  },
+  {
+    "id": "read-n3-delivery-message",
+    "level": 3,
+    "title": "A parcel delivery message",
+    "genre": "Message",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{荷物|にもつ}のお{届|とど}けについて。{本日|ほんじつ}お{伺|うかが}いしましたが、ご{不在|ふざい}でした。{荷物|にもつ}は{来週|らいしゅう}{水曜日|すいようび}まで{営業所|えいぎょうしょ}でお{預|あず}かりします。{再配達|さいはいたつ}をご{希望|きぼう}の{場合|ばあい}は、{前日|ぜんじつ}の{午後|ごご}{八時|はちじ}までにご{連絡|れんらく}ください。{営業所|えいぎょうしょ}で{受|う}け{取|と}ることもできます。その{際|さい}は、この{紙|かみ}と{本人|ほんにん}であることが{分|わ}かるものをお{持|も}ちください。",
+    "translation": "About your parcel: We visited today but you were out. We will hold the parcel at the depot until next Wednesday. If you would like redelivery, contact us by eight in the evening on the day before. You can also collect it at the depot. In that case, bring this slip and something that identifies you.",
+    "glossary": [
+      {
+        "term": "荷物",
+        "reading": "にもつ",
+        "meaning": "parcel; luggage"
+      },
+      {
+        "term": "不在",
+        "reading": "ふざい",
+        "meaning": "absence"
+      },
+      {
+        "term": "再配達",
+        "reading": "さいはいたつ",
+        "meaning": "redelivery"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Why was the parcel not delivered?",
+        "choices": [
+          "The recipient was out",
+          "The address was missing",
+          "The parcel was damaged",
+          "The depot was closed"
+        ],
+        "answer": 0,
+        "explanation": "ご不在でした means the recipient was absent."
+      },
+      {
+        "prompt": "When must redelivery be requested?",
+        "choices": [
+          "By eight the previous evening",
+          "Only after Wednesday",
+          "At eight on delivery day",
+          "Within a month"
+        ],
+        "answer": 0,
+        "explanation": "前日の午後八時まで gives the deadline."
+      },
+      {
+        "prompt": "What is needed for collection?",
+        "choices": [
+          "The slip and identification",
+          "Only a phone number",
+          "A new delivery fee",
+          "A letter from a neighbour"
+        ],
+        "answer": 0,
+        "explanation": "この紙 and proof of identity are both requested."
+      }
+    ]
+  },
+  {
+    "id": "read-n3-community-kitchen",
+    "level": 3,
+    "title": "Cooking with neighbours",
+    "genre": "Article",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{近所|きんじょ}の{交流|こうりゅう}センターで、{月|つき}に{一度|いちど}{料理|りょうり}の{会|かい}が{開|ひら}かれている。{参加者|さんかしゃ}は{得意|とくい}な{料理|りょうり}を{教|おし}え{合|あ}う。{私|わたし}は{料理|りょうり}が{上手|じょうず}ではないので、{最初|さいしょ}は{参加|さんか}するのをためらった。ところが、{野菜|やさい}を{洗|あら}うだけでも{助|たす}かると{言|い}われ、{行|い}ってみることにした。{今|いま}では{料理|りょうり}よりも、{世代|せだい}の{違|ちが}う{人|ひと}と{話|はな}すことを{楽|たの}しみにしている。{何|なに}かが{得意|とくい}でなくても、{地域|ちいき}に{関|かか}わることはできるのだ。",
+    "translation": "A cooking group meets monthly at a neighbourhood community centre. Participants teach one another dishes they are good at. I hesitated to join because I am not good at cooking. But I was told that even washing vegetables would help, so I tried going. Now I look forward more to talking with people of different generations than to cooking itself. You can get involved in your community even without a special skill.",
+    "glossary": [
+      {
+        "term": "交流",
+        "reading": "こうりゅう",
+        "meaning": "interaction; exchange"
+      },
+      {
+        "term": "参加者",
+        "reading": "さんかしゃ",
+        "meaning": "participant"
+      },
+      {
+        "term": "世代",
+        "reading": "せだい",
+        "meaning": "generation"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "How often does the group meet?",
+        "choices": [
+          "Once a month",
+          "Every day",
+          "Twice a year",
+          "Every weekend"
+        ],
+        "answer": 0,
+        "explanation": "月に一度 means once a month."
+      },
+      {
+        "prompt": "Why did the writer hesitate?",
+        "choices": [
+          "They thought their cooking ability was insufficient",
+          "They disliked neighbours",
+          "The fee was too high",
+          "The centre was far away"
+        ],
+        "answer": 0,
+        "explanation": "料理が上手ではない was the initial concern."
+      },
+      {
+        "prompt": "What is the writer’s main realization?",
+        "choices": [
+          "Special skills are not required to get involved",
+          "Only good cooks should join",
+          "Generations should cook separately",
+          "Every community needs a restaurant"
+        ],
+        "answer": 0,
+        "explanation": "The final sentence says one can participate without being particularly skilled."
+      }
+    ]
+  },
+  {
+    "id": "read-n2-proposal-dialogue",
+    "level": 2,
+    "title": "Discussing a proposal",
+    "genre": "Dialogue",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{担当者|たんとうしゃ}：{利用者|りようしゃ}の{意見|いけん}を{基|もと}に、{窓口|まどぐち}の{受付|うけつけ}{時間|じかん}を{延長|えんちょう}してはどうでしょう。\n{責任者|せきにんしゃ}：{要望|ようぼう}があるのは{承知|しょうち}しています。ただ、{職員|しょくいん}の{負担|ふたん}も{考慮|こうりょ}する{必要|ひつよう}があります。\n{担当者|たんとうしゃ}：まず{週|しゅう}に{一日|いちにち}だけ{試行|しこう}し、{利用|りよう}{状況|じょうきょう}を{確認|かくにん}するのはいかがですか。\n{責任者|せきにんしゃ}：それなら{検討|けんとう}できます。{費用|ひよう}の{見込|みこ}みも{含|ふく}めて、{案|あん}をまとめてください。",
+    "translation": "Staff member: Based on users’ comments, how about extending reception hours? Supervisor: I am aware of the requests, but we also need to consider the burden on staff. Staff member: How about trying it just one day a week first and checking usage? Supervisor: We can consider that. Put together a proposal including an estimate of costs.",
+    "glossary": [
+      {
+        "term": "負担",
+        "reading": "ふたん",
+        "meaning": "burden"
+      },
+      {
+        "term": "試行",
+        "reading": "しこう",
+        "meaning": "trial"
+      },
+      {
+        "term": "費用",
+        "reading": "ひよう",
+        "meaning": "cost"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What concern does the supervisor raise?",
+        "choices": [
+          "The burden on staff",
+          "The appearance of the building",
+          "A lack of user requests",
+          "The number of windows"
+        ],
+        "answer": 0,
+        "explanation": "職員の負担 is explicitly raised."
+      },
+      {
+        "prompt": "What compromise is proposed?",
+        "choices": [
+          "A one-day-per-week trial",
+          "Closing reception permanently",
+          "Extending every day immediately",
+          "Hiring users as staff"
+        ],
+        "answer": 0,
+        "explanation": "週に一日だけ試行 limits the proposal to a trial."
+      },
+      {
+        "prompt": "What must the final proposal include?",
+        "choices": [
+          "An estimate of costs",
+          "A new building design",
+          "A list of staff holidays only",
+          "A guarantee of profit"
+        ],
+        "answer": 0,
+        "explanation": "費用の見込みも含めて asks for projected costs as well."
+      }
+    ]
+  },
+  {
+    "id": "read-n2-workshop-notice",
+    "level": 2,
+    "title": "A workshop registration notice",
+    "genre": "Notice",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{市民|しみん}{講座|こうざ}「{写真|しゃしん}で{伝|つた}える{町|まち}の{魅力|みりょく}」の{参加者|さんかしゃ}を{募集|ぼしゅう}します。{専門|せんもん}の{機材|きざい}は{不要|ふよう}で、スマートフォンでも{参加|さんか}できます。{応募|おうぼ}が{定員|ていいん}を{超|こ}えた{場合|ばあい}は{抽選|ちゅうせん}とし、{結果|けっか}は{全員|ぜんいん}にメールでお{知|し}らせします。{締切|しめきり}{後|ご}の{内容|ないよう}{変更|へんこう}は{受|う}け{付|つ}けませんので、{送信|そうしん}{前|まえ}に{連絡先|れんらくさき}をご{確認|かくにん}ください。{当日|とうじつ}の{天候|てんこう}によっては、{屋外|おくがい}での{撮影|さつえい}を{室内|しつない}の{活動|かつどう}に{切|き}り{替|か}えます。",
+    "translation": "We are recruiting participants for the community course “Showing the Town’s Appeal through Photography.” No specialist equipment is necessary; smartphones are welcome. If applications exceed capacity, a lottery will be held and everyone will be informed of the result by email. Changes will not be accepted after the deadline, so check your contact details before submitting. Depending on the weather, outdoor photography may be replaced by indoor activities.",
+    "glossary": [
+      {
+        "term": "機材",
+        "reading": "きざい",
+        "meaning": "equipment"
+      },
+      {
+        "term": "抽選",
+        "reading": "ちゅうせん",
+        "meaning": "lottery; drawing lots"
+      },
+      {
+        "term": "連絡先",
+        "reading": "れんらくさき",
+        "meaning": "contact information"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What equipment is required?",
+        "choices": [
+          "A smartphone is sufficient",
+          "A professional camera only",
+          "A rented studio",
+          "No device of any kind"
+        ],
+        "answer": 0,
+        "explanation": "スマートフォンでも参加できます allows smartphones."
+      },
+      {
+        "prompt": "How are participants selected if too many apply?",
+        "choices": [
+          "By lottery",
+          "First by age",
+          "Only by photography experience",
+          "By a written test"
+        ],
+        "answer": 0,
+        "explanation": "抽選とし specifies a lottery."
+      },
+      {
+        "prompt": "What may change because of weather?",
+        "choices": [
+          "Outdoor photography may become an indoor activity",
+          "The application deadline will always move",
+          "Email results will be cancelled",
+          "Everyone must buy equipment"
+        ],
+        "answer": 0,
+        "explanation": "The final sentence explains the alternative activity."
+      }
+    ]
+  },
+  {
+    "id": "read-n2-repair-article",
+    "level": 2,
+    "title": "The value of repairing things",
+    "genre": "Article",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{壊|こわ}れた{物|もの}を{買|か}い{替|か}える{前|まえ}に、{地域|ちいき}の{修理|しゅうり}{会|かい}に{持|も}ち{込|こ}む{人|ひと}がいる。この{会|かい}では、{経験|けいけん}のある{人|ひと}が{利用者|りようしゃ}と{一緒|いっしょ}に{原因|げんいん}を{調|しら}べる。{必|かなら}ず{直|なお}るとは{限|かぎ}らないが、{仕組|しく}みを{知|し}る{機会|きかい}になるという。{主催者|しゅさいしゃ}が{重視|じゅうし}しているのは、{物|もの}を{長|なが}く{使|つか}うことだけではない。{教|おし}える{側|がわ}と{教|おそ}わる{側|がわ}が{固定|こてい}されず、それぞれの{知識|ちしき}が{役|やく}に{立|た}つ{場|ば}を{作|つく}ることだ。{修理|しゅうり}を{通|つう}じて、{地域|ちいき}の{中|なか}に{新|あたら}しい{関係|かんけい}が{生|う}まれている。",
+    "translation": "Some people take broken things to a community repair gathering before replacing them. Experienced participants investigate the cause together with users. A repair is not guaranteed, but it offers a chance to learn how things work. The organizers value more than simply making objects last. They want a place where teaching and learning roles are not fixed and everyone’s knowledge can help. New local relationships are forming through repair.",
+    "glossary": [
+      {
+        "term": "修理",
+        "reading": "しゅうり",
+        "meaning": "repair"
+      },
+      {
+        "term": "仕組",
+        "reading": "しく",
+        "meaning": "mechanism (as in 仕組み)"
+      },
+      {
+        "term": "知識",
+        "reading": "ちしき",
+        "meaning": "knowledge"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What is not guaranteed?",
+        "choices": [
+          "That every object can be repaired",
+          "That visitors may ask questions",
+          "That experienced people attend",
+          "That users can participate"
+        ],
+        "answer": 0,
+        "explanation": "必ず直るとは限らない states this limit."
+      },
+      {
+        "prompt": "What arrangement do organizers value?",
+        "choices": [
+          "People can both teach and learn",
+          "Only experts may speak",
+          "The same person always teaches",
+          "Users must repair things alone"
+        ],
+        "answer": 0,
+        "explanation": "Teaching and learning roles should not be fixed."
+      },
+      {
+        "prompt": "What wider effect is described?",
+        "choices": [
+          "New relationships in the community",
+          "An end to all shopping",
+          "Less need for any knowledge",
+          "A ban on replacing objects"
+        ],
+        "answer": 0,
+        "explanation": "The final sentence describes new local relationships."
+      }
+    ]
+  },
+  {
+    "id": "read-n1-archive-dialogue",
+    "level": 1,
+    "title": "Opening a community archive",
+    "genre": "Dialogue",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{編集者|へんしゅうしゃ}：{集|あつ}めた{写真|しゃしん}をすべて{公開|こうかい}すれば、{町|まち}の{歴史|れきし}を{網羅|もうら}できますね。\n{担当者|たんとうしゃ}：{数|かず}を{揃|そろ}えれば{十分|じゅうぶん}というわけではありません。{撮影|さつえい}の{経緯|けいい}や、{写|うつ}っている{方|かた}の{意向|いこう}を{確|たし}かめる{作業|さぎょう}が{欠|か}かせません。\n{編集者|へんしゅうしゃ}：{公開|こうかい}を{急|いそ}ぐあまり、{背景|はいけい}を{見落|みお}としかねないということですね。\n{担当者|たんとうしゃ}：ええ。{確認|かくにん}できた{資料|しりょう}から{順次|じゅんじ}{公開|こうかい}し、{不明|ふめい}な{点|てん}は{不明|ふめい}と{明示|めいじ}する{方針|ほうしん}です。",
+    "translation": "Editor: If we publish every collected photo, we can cover the town’s history comprehensively. Archivist: Numbers alone are not sufficient. We must check how photos were taken and the wishes of those shown. Editor: So in our rush to publish, we could overlook the background. Archivist: Exactly. We plan to release verified material gradually and explicitly mark what remains unknown.",
+    "glossary": [
+      {
+        "term": "経緯",
+        "reading": "けいい",
+        "meaning": "background; course of events"
+      },
+      {
+        "term": "意向",
+        "reading": "いこう",
+        "meaning": "wishes; intention"
+      },
+      {
+        "term": "順次",
+        "reading": "じゅんじ",
+        "meaning": "in sequence; gradually"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What assumption does the archivist challenge?",
+        "choices": [
+          "That quantity alone ensures a sufficient archive",
+          "That photos can show history",
+          "That verification takes time",
+          "That unknown facts should be marked"
+        ],
+        "answer": 0,
+        "explanation": "数を揃えれば十分というわけではありません directly challenges the quantity assumption."
+      },
+      {
+        "prompt": "What risk does the editor recognize?",
+        "choices": [
+          "Rushing may cause contextual details to be missed",
+          "Photos will become too colourful",
+          "All residents oppose publication",
+          "No material can be verified"
+        ],
+        "answer": 0,
+        "explanation": "公開を急ぐあまり explains the danger of overlooking context."
+      },
+      {
+        "prompt": "How will uncertain information be handled?",
+        "choices": [
+          "It will be clearly identified as unknown",
+          "It will be invented",
+          "All uncertainty will be hidden",
+          "Every verified photo will be discarded"
+        ],
+        "answer": 0,
+        "explanation": "不明な点は不明と明示する states the policy."
+      }
+    ]
+  },
+  {
+    "id": "read-n1-grant-notice",
+    "level": 1,
+    "title": "A notice for project applicants",
+    "genre": "Notice",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{地域|ちいき}{活動|かつどう}{支援|しえん}{事業|じぎょう}への{申請|しんせい}に{際|さい}しては、{活動|かつどう}の{目的|もくてき}に{加|くわ}え、{終了|しゅうりょう}{後|ご}に{成果|せいか}をいかに{地域|ちいき}へ{還元|かんげん}するかを{記載|きさい}してください。{採択|さいたく}に{当|あ}たっては、{規模|きぼ}の{大小|だいしょう}よりも、{計画|けいかく}の{実現|じつげん}{可能性|かのうせい}と{継続性|けいぞくせい}を{重視|じゅうし}します。なお、{申請|しんせい}{内容|ないよう}に{疑義|ぎぎ}が{生|しょう}じた{場合|ばあい}は、{追加|ついか}{資料|しりょう}の{提出|ていしゅつ}を{求|もと}めることがあります。{提出|ていしゅつ}をもって{採択|さいたく}を{保証|ほしょう}するものではありません。{結果|けっか}の{通知|つうち}は、{審査|しんさ}の{完了|かんりょう}{後|ご}に{行|おこな}います。",
+    "translation": "When applying for the community activity support program, describe both the purpose of your activity and how its outcomes will benefit the community afterward. Selection emphasizes feasibility and continuity rather than the scale of the project. Additional documents may be requested if questions arise about an application. Submitting them does not guarantee selection. Results will be announced after the review is complete.",
+    "glossary": [
+      {
+        "term": "還元",
+        "reading": "かんげん",
+        "meaning": "giving back; returning benefits"
+      },
+      {
+        "term": "継続性",
+        "reading": "けいぞくせい",
+        "meaning": "continuity; sustainability"
+      },
+      {
+        "term": "疑義",
+        "reading": "ぎぎ",
+        "meaning": "doubt; question requiring clarification"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What must be described besides the activity’s purpose?",
+        "choices": [
+          "How results will benefit the community",
+          "Only the applicant’s age",
+          "The biggest possible budget",
+          "A guarantee that no questions will arise"
+        ],
+        "answer": 0,
+        "explanation": "成果をいかに地域へ還元するか requests the community benefit."
+      },
+      {
+        "prompt": "Which factors take priority over scale?",
+        "choices": [
+          "Feasibility and continuity",
+          "Publicity and speed",
+          "Building size and location",
+          "Application length and colour"
+        ],
+        "answer": 0,
+        "explanation": "実現可能性と継続性 are explicitly emphasized."
+      },
+      {
+        "prompt": "Does submitting extra documents guarantee selection?",
+        "choices": [
+          "No",
+          "Yes, immediately",
+          "Only if sent by email",
+          "Only for large projects"
+        ],
+        "answer": 0,
+        "explanation": "採択を保証するものではありません explicitly denies a guarantee."
+      }
+    ]
+  },
+  {
+    "id": "read-n1-quiet-spaces",
+    "level": 1,
+    "title": "Who defines a quiet space?",
+    "genre": "Longer article",
+    "source": "Kanji Path",
+    "license": "CC0-1.0",
+    "text": "{公共|こうきょう}の{場|ば}における{静|しず}けさは、しばしば{誰|だれ}にとっても{望|のぞ}ましいものと{見|み}なされる。だが、その{静|しず}けさがどのように{保|たも}たれ、{誰|だれ}の{行動|こうどう}を{制約|せいやく}しているかは、{必|かなら}ずしも{問|と}われない。たとえば、{図書館|としょかん}での{会話|かいわ}を{一律|いちりつ}に{禁|きん}じれば、{集中|しゅうちゅう}しやすくなる{一方|いっぽう}、{読|よ}み{聞|き}かせを{必要|ひつよう}とする{子供|こども}や、{対話|たいわ}を{通|つう}じて{理解|りかい}を{深|ふか}める{人|ひと}は{利用|りよう}しづらくなる。\n\nもちろん、{音|おと}への{配慮|はいりょ}が{不要|ふよう}だというのではない。{重要|じゅうよう}なのは、{静|しず}かであることを{施設|しせつ}{全体|ぜんたい}の{唯一|ゆいいつ}の{価値|かち}とせず、{異|こと}なる{利用|りよう}の{仕方|しかた}を{調整|ちょうせい}することだ。{空間|くうかん}を{分|わ}けたり、{時間帯|じかんたい}によって{運用|うんよう}を{変|か}えたりする{試|こころ}みは、その{一例|いちれい}である。\n\n{快適|かいてき}さを{抽象的|ちゅうしょうてき}な{理想|りそう}として{掲|かか}げるだけでは、そこから{排除|はいじょ}される{経験|けいけん}が{見|み}えなくなる。{規則|きそく}を{守|まも}れるかどうかだけでなく、{規則|きそく}がどのような{参加|さんか}を{可能|かのう}にするのかを{考|かんが}える{視点|してん}が{求|もと}められる。",
+    "translation": "Quietness in public places is often treated as desirable for everyone. Yet we do not always ask how it is maintained or whose behaviour it restricts. A blanket ban on conversation in libraries may improve concentration while making access harder for children who need stories read aloud or people who learn through discussion. This does not mean consideration for noise is unnecessary. The important point is to coordinate different uses instead of treating silence as a facility’s only value. Separate spaces or different arrangements at different times are examples. Merely declaring comfort an abstract ideal can hide experiences of exclusion. We should ask not only whether people can follow rules, but what forms of participation those rules make possible.",
+    "glossary": [
+      {
+        "term": "制約",
+        "reading": "せいやく",
+        "meaning": "restriction; constraint"
+      },
+      {
+        "term": "一律",
+        "reading": "いちりつ",
+        "meaning": "uniform; without distinction"
+      },
+      {
+        "term": "配慮",
+        "reading": "はいりょ",
+        "meaning": "consideration"
+      },
+      {
+        "term": "排除",
+        "reading": "はいじょ",
+        "meaning": "exclusion"
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "What does the author question?",
+        "choices": [
+          "Treating silence as an unquestioned benefit for everyone",
+          "The value of reading books",
+          "All attempts to reduce noise",
+          "The existence of public libraries"
+        ],
+        "answer": 0,
+        "explanation": "The opening asks whose behaviour the pursuit of silence restricts."
+      },
+      {
+        "prompt": "Why are separate spaces suggested?",
+        "choices": [
+          "To accommodate different ways of using a facility",
+          "To remove children from every library",
+          "To make all conversation compulsory",
+          "To stop all individual study"
+        ],
+        "answer": 0,
+        "explanation": "They are examples of coordinating differing uses rather than choosing one universal value."
+      },
+      {
+        "prompt": "What perspective does the conclusion recommend?",
+        "choices": [
+          "Consider what participation rules enable",
+          "Judge only whether people obey rules",
+          "Eliminate all rules immediately",
+          "Define comfort without consulting experience"
+        ],
+        "answer": 0,
+        "explanation": "The final sentence explicitly shifts attention to the participation made possible by rules."
+      }
     ]
   }
 ]

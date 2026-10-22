@@ -1,11 +1,13 @@
 import {TEST_CATEGORIES,TEST_LABELS,studiedMaterials,buildKnowledgeTest,gradeKnowledgeTest,shuffleQuestions,isCorrectAnswer} from './assessment.js';
-import {updateMistake} from './mistakes.js';
+import {correctionHTML} from './corrections.js';
+import {trackQuestion} from './progress.js';
+import {updateMistake,questionSkill} from './mistakes.js';
 import {createLanguageTestPage} from './language-test-page.js';
 
-export function createTestPage({getProfile,getItems,getMaterials=()=>({classes:{},reading:[]}),speak,stopSpeech,hasVoice,esc,jp,icon,pageHeading,persist,render,navigate}){
+export function createTestPage({getProfile,getItems,getMaterials=()=>({classes:{},reading:[]}),recordReview=()=>{},speak,stopSpeech,hasVoice,esc,jp,icon,pageHeading,persist,render,navigate}){
   const defaults=()=>({category:'all',level:'all',count:10,format:'choice',vocabTask:'reading',source:'studied'});
   let owner=null,test=null,settings=defaults(),activity='knowledge';
-  const language=createLanguageTestPage({getProfile,getItems,getMaterials,speak,stopSpeech,hasVoice,esc,icon,pageHeading,persist,render});
+  const language=createLanguageTestPage({getProfile,getItems,getMaterials,recordReview,speak,stopSpeech,hasVoice,esc,icon,pageHeading,persist,render});
   const ensureOwner=()=>{const id=getProfile().id;if(id!==owner){owner=id;test=null;settings=defaults();activity='knowledge'}};
   const refresh=()=>{render();(document.querySelector('#typed-answer:not(:disabled)')||document.querySelector('#test-question'))?.focus()};
   const answerFor=(question,answer)=>answer?.choice==='skip'?'Not sure':question.format==='typed'?answer?.text||'Not answered':question.options.find(option=>option.id===answer?.choice)?.text||'Not answered';
@@ -16,7 +18,7 @@ export function createTestPage({getProfile,getItems,getMaterials=()=>({classes:{
   function view(){
     ensureOwner();
     const tabs=`<div class="test-mode-tabs" role="group" aria-label="Test mode">${[['knowledge','Knowledge check'],['conjugation','Conjugation practice'],['reading','Graded reading'],['dictation','Sentence dictation']].map(([value,label])=>`<button data-test-kind="${value}" class="${activity===value?'active':''}" aria-pressed="${activity===value}">${label}</button>`).join('')}</div>`;
-    return tabs+(activity==='knowledge'?knowledgeView():language.view());
+    return `<div class="mixed-entry"><button class="secondary" data-daily-mixed="true">Daily mixed session ${icon('arrow')}</button><span class="small muted">Up to 8 questions · reviews, weak forms, listening & reading</span></div>`+tabs+(activity==='knowledge'?knowledgeView():language.view());
   }
   function knowledgeView(){
     ensureOwner();
@@ -32,9 +34,9 @@ export function createTestPage({getProfile,getItems,getMaterials=()=>({classes:{
       ${settings.format==='typed'?select('test-vocab-task','Vocabulary questions',[['reading','Type the kana reading'],['meaning','Type an English meaning']],settings.vocabTask):''}
       ${select('test-size','Test length',[5,10,20].map(n=>[n,`Up to ${n} questions`]),settings.count)}
       ${settings.format==='typed'?'<p class="small muted">Vocabulary: type the selected reading or meaning. Kanji: English meaning. Kana: romaji. Sentences: the missing Japanese word. Grammar uses multiple choice, so it is excluded here.</p>':''}
-      ${selection.length?`<p class="small muted">${selected} question${selected===1?'':'s'} ready · one per studied item.</p>`:`<div class="notice">${settings.source==='mistakes'?'No unresolved mistakes match these filters. Correct answers clear items from the notebook.':all.length?'No practiced items match these filters. Try another selection or answer format.':'Complete a lesson or answer a practice card first. Browsing alone does not add test material.'}</div>`}
+      ${selection.length?`<p class="small muted">${selected} question${selected===1?'':'s'} ready · one per studied item.</p>`:`<div class="notice">${settings.source==='mistakes'?'No unresolved mistakes match these filters. Correct answers clear only the matching skill.':all.length?'No practiced items match these filters. Try another selection or answer format.':'Complete a lesson or answer a practice card first. Browsing alone does not add test material.'}</div>`}
       <div class="button-row"><button class="primary" data-test-action="start" ${!selection.length?'disabled':''}>Start test ${icon('arrow')}</button><button class="secondary" data-nav="learn">Learning path</button></div></section>
-      <section class="panel"><h2>Test options</h2><ul class="test-info"><li>Choose multiple choice or type answers from memory.</li><li>Incorrect answers and “not sure” go into your mistake notebook immediately.</li><li>A correct answer clears that item from the notebook.</li><li>Scores and mistakes stay with this learner and are included in backups.</li></ul><p class="small muted">Typed answers use the bundled readings and English meanings, with forgiving capitalization, spacing, and kana variants. Unlisted synonyms may need another try. Tests do not change your daily review schedule.</p><button class="text-link" data-nav="mistakes">Open mistake notebook ${icon('arrow')}</button></section></div>
+      <section class="panel"><h2>Test options</h2><ul class="test-info"><li>Choose multiple choice or type answers from memory.</li><li>Incorrect answers and “not sure” go into your mistake notebook immediately.</li><li>A correct answer clears only that skill. Other forms and listening mistakes stay in your notebook.</li><li>Scores and mistakes stay with this learner and are included in backups.</li></ul><p class="small muted">Typed answers use the bundled readings and English meanings, with forgiving capitalization, spacing, and kana variants. Unlisted synonyms may need another try. Tests do not change your daily review schedule.</p><button class="text-link" data-nav="mistakes">Open mistake notebook ${icon('arrow')}</button></section></div>
       <section class="panel test-history"><h2>Recent test scores</h2>${history.length?history.slice().reverse().map(result=>`<div class="test-history-row"><span><strong>${esc(TEST_LABELS[result.category])}${result.level!=='all'?' · N'+result.level:''}</strong><small>${esc(new Date(result.at).toLocaleString('en',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}))}</small></span><span>${result.correct} / ${result.total}</span><b>${Math.round(result.correct/result.total*100)}%</b></div>`).join(''):'<p class="small muted">Your completed tests will appear here.</p>'}</section>`;
   }
 
@@ -43,7 +45,7 @@ export function createTestPage({getProfile,getItems,getMaterials=()=>({classes:{
     const typed=question.format==='typed';
     return `${pageHeading('Test yourself.','Take your time. Recall before checking the answer.')}<section class="panel test-question-panel"><div class="test-question-top"><span>Question ${test.index+1} of ${test.questions.length}</span><span>${score.correct} correct so far</span></div><div class="stat-line"><i style="width:${test.index/test.questions.length*100}%"></i></div><h2 id="test-question" tabindex="-1">${esc(question.title)}</h2><div class="test-prompt ${question.type==='cloze'?'test-cloze':''}" lang="ja">${esc(question.prompt)}</div>${question.reading?`<p class="test-reading" lang="ja">${esc(question.reading)}</p>`:''}${question.hint?`<p class="test-hint">${esc(question.hint)}</p>`:''}
       ${typed?`<form id="typed-answer-form" class="typed-answer-form"><label for="typed-answer">Your answer</label><input class="input" id="typed-answer" name="answer" maxlength="300" autocomplete="off" autocapitalize="none" spellcheck="false" ${['reading','cloze'].includes(question.type)?'lang="ja"':''} value="${esc(answer?.text||'')}" ${answer?'disabled':''} required><p class="small muted">${question.type==='reading'?'Hiragana and katakana are both accepted. Use your Japanese keyboard.':question.type==='meaning'?'Use one of the word’s English meanings. Capitalization does not matter.':question.type==='kana'?'Type the sound using Latin letters, such as shi or si.':'Use Japanese characters for the missing word.'}</p><button class="primary" type="submit" ${answer?'disabled':''}>Check answer ${icon('check')}</button></form>`:`<div class="options test-options">${question.options.map(option=>`<button class="option test-option ${answer?(option.id===question.correctChoice?'correct':option.id===answer.choice?'wrong':''):''}" data-test-choice="${option.id}" ${answer?'disabled':''}>${esc(option.text)}</button>`).join('')}</div>`}
-      ${answer?`<div class="test-feedback ${correct?'success':'error'}" role="status"><strong>${correct?'Correct.':'Keep practicing.'}</strong><p>Answer: ${esc(question.answer)}</p>${!correct?`<p>Your answer: ${esc(answerFor(question,answer))}</p><p class="small">Saved to your mistake notebook.</p>`:''}</div>`:''}<div class="test-controls"><button class="ghost" data-test-action="exit">Exit test</button>${answer?`<button class="primary" data-test-action="next">${test.index===test.questions.length-1?'See results':'Next question'} ${icon('arrow')}</button>`:'<button class="secondary" data-test-choice="skip">I’m not sure</button>'}</div></section>`;
+      ${answer?`<div class="test-feedback ${correct?'success':'error'}" role="status"><strong>${correct?'Correct.':'Keep practicing.'}</strong><p>Answer: ${esc(question.answer)}</p>${!correct?`<p>Your answer: ${esc(answerFor(question,answer))}</p>${correctionHTML(question,answer,esc)}<p class="small">Saved to your mistake notebook.</p>`:''}</div>`:''}<div class="test-controls"><button class="ghost" data-test-action="exit">Exit test</button>${answer?`<button class="primary" data-test-action="next">${test.index===test.questions.length-1?'See results':'Next question'} ${icon('arrow')}</button>`:'<button class="secondary" data-test-choice="skip">I’m not sure</button>'}</div></section>`;
   }
 
   function resultsView(){
@@ -56,7 +58,7 @@ export function createTestPage({getProfile,getItems,getMaterials=()=>({classes:{
     const question=test.questions[test.index];
     if(test.answers.some(a=>a.questionId===question.id))return;
     test.answers.push({questionId:question.id,...answer});
-    updateMistake(getProfile(),question.itemId,isCorrectAnswer(question,answer),'test');persist();refresh();
+    const correct=isCorrectAnswer(question,answer);updateMistake(getProfile(),question.itemId,correct,'test',Date.now(),questionSkill(question));trackQuestion(getProfile(),question,getItems().find(i=>i.id===question.itemId),correct);persist();refresh();
   }
   function handleSubmit(form,event){
     if(language.handleSubmit(form,event))return true;
@@ -79,6 +81,7 @@ export function createTestPage({getProfile,getItems,getMaterials=()=>({classes:{
     render();return true;
   }
   function handleClick(dataset){
+    if(dataset.dailyMixed){startDaily();return true}
     if(dataset.testKind){ensureOwner();if(['knowledge','conjugation','reading','dictation'].includes(dataset.testKind)){language.stopAudio();activity=dataset.testKind;if(activity!=='knowledge')language.setMode(activity);render()}return true}
     if(language.handleClick(dataset))return true;
     if(!dataset.testAction&&!dataset.testChoice)return false;
@@ -103,6 +106,11 @@ export function createTestPage({getProfile,getItems,getMaterials=()=>({classes:{
     }
     refresh();return true;
   }
-  function openMistakes(){ensureOwner();language.stopAudio();activity='knowledge';test=null;settings={...defaults(),source:'mistakes'};navigate('test')}
-  return {view,handleClick,handleChange,handleSubmit,openMistakes,handleInput:language.handleInput,stopAudio:language.stopAudio,onVoicesChanged:()=>{if(activity==='dictation')render()}};
+  function startDaily(){ensureOwner();activity='mixed';test=null;language.startMixed();navigate('test')}
+  function openMistakes(itemId,skill){
+    ensureOwner();
+    if(itemId){if(!language.openMistake(itemId,skill))return false;activity=skill.startsWith('conjugation:')?'conjugation':skill.startsWith('dictation:')?'dictation':skill.startsWith('comprehension:')?'reading':'mixed';test=null;navigate('test');return true}
+    startDaily();return true;
+  }
+  return {view,handleClick,handleChange,handleSubmit,openMistakes,startDaily,handleInput:language.handleInput,stopAudio:language.stopAudio,onVoicesChanged:()=>{if(['dictation','mixed'].includes(activity))render()}};
 }

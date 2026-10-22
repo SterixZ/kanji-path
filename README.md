@@ -14,8 +14,8 @@
   drawing and session styles. It uses system fonts, neutral surfaces and one blue
   accent. Phone body text is 16px; main controls are at least 48px. The larger
   writing board, start marker and sticky close control are retained.
-- Learner storage and backup formats are unchanged (`kanji-path-v1`). The current
-  offline asset cache is `kanji-path-v9`; it includes the shared shell and stylesheet.
+- Learner storage stays `kanji-path-v1`; existing backups remain compatible. The current
+  offline asset cache is `kanji-path-v13`; it includes the shared shell and stylesheet.
 - Route and isolated full-app integration tests cover the navigation, dialogs,
   test modes, hidden dictation transcripts and preservation of existing progress.
   Rendered checks at phone/landscape/desktop sizes still require browser access;
@@ -25,7 +25,7 @@
 Phone handwriting uses the available dialog width (up to 420px), with a larger
 stroke-start marker and 48px writing-tool buttons. The modal close button has a
 52px touch target on phones and stays visible in the sticky dialog header.
-The offline asset cache is `kanji-path-v8`; learner storage stays `kanji-path-v1`.
+The offline asset cache is `kanji-path-v13`; learner storage stays `kanji-path-v1`.
 
 ## Additional Test yourself modes
 
@@ -36,7 +36,7 @@ The offline asset cache is `kanji-path-v8`; learner storage stays `kanji-path-v1
   with kana/written answers and rule explanations. Unsupported classes are
   omitted rather than inferred from word endings. Rebuild the class mapping with
   `python -X utf8 scripts/build-conjugation.py` after rebuilding vocabulary.
-- **Graded reading** includes ten original CC0 passages, two per estimated N5–N1
+- **Graded reading** includes 25 original CC0 passages, five per estimated N5–N1
   level, with three comprehension questions each. Highlighted words have tappable
   definitions. Furigana can be hidden. Results include explanations and the full
   English translation. The source is `dist/data/reading.json`; levels are study
@@ -51,10 +51,10 @@ The offline asset cache is `kanji-path-v8`; learner storage stays `kanji-path-v1
   kanji readings are excluded to avoid unreliable kana grading.
 - All three modes are under **Test yourself**, alongside the existing knowledge
   check. Scores share the last-30-test history per learner and version-1 backups.
-  Conjugation/dictation errors use the existing word mistake notebook; reading
-  comprehension saves scores and offers retries without changing word reviews.
+  Conjugation, dictation and reading-comprehension errors use the skill-specific
+  notebook. Reading comprehension does not change word review schedules.
   No backend, paid API, or account is introduced. New assets are precached in
-  `kanji-path-v7`, while learner storage stays `kanji-path-v1`.
+  `kanji-path-v13`, while learner storage stays `kanji-path-v1`.
 
 ## Grammar, typed tests, and mistake notebook
 
@@ -70,9 +70,9 @@ The offline asset cache is `kanji-path-v8`; learner storage stays `kanji-path-v1
   This is deterministic grading, not AI translation; unlisted synonyms may be
   rejected. Grammar tests remain multiple choice and are excluded from typed tests.
 - **Mistake notebook** persists incorrect test answers, “not sure”, and practice
-  ratings of Again. Correct answers or successful practice ratings clear an item;
-  learners can also remove an entry manually. The practice button opens a test
-  restricted to unresolved mistakes, with the usual material and level filters.
+  ratings of Again. Correct answers clear only the matching skill or form;
+  learners can also remove a skill entry manually. Retry buttons reopen the
+  exact exercise, and the main practice button starts a short mixed session.
 - Mistakes and grammar progress stay separate per learner and are included in
   version-1 backups under the existing `kanji-path-v1` storage key. Older backups
   recover unresolved practice mistakes from retained history. Earlier test scores
@@ -82,7 +82,7 @@ The offline asset cache is `kanji-path-v8`; learner storage stays `kanji-path-v1
   `dist/data/grammar-meta.json`; the full upstream notice and licence remain bundled.
   Refresh with `python -X utf8 scripts/build-grammar.py --download`, or omit
   `--download` to rebuild from the ignored local snapshot. The new content and
-  modules are precached for offline use (service worker cache `kanji-path-v6`).
+  modules are precached for offline use (service worker cache `kanji-path-v13`).
 
 A free Japanese study app with an original interface inspired by familiar
 kanji-study workflows. No paid API, account, backend database, npm install,
@@ -271,3 +271,19 @@ original vocabulary entries and practice sentences: CC0. Expanded vocabulary:
 OpenJLPT contributors, Jonathan Waller’s lists and JMdict (EDRDG), CC BY-SA 4.0;
 the combined adapted vocabulary dataset remains CC BY-SA 4.0. See dist/credits.html
 and Settings → Sources for full attribution and source/download links.
+
+
+## Mixed practice, skill progress and shadowing
+
+- Home → **Start mixed session** runs up to eight questions: up to two due recall/listening/context cards, two weak or new conjugation forms, two listening questions (when a Japanese voice is available), and two questions on a short passage. It follows the learner's most recently practiced level, starting at N5. Due handwriting cards stay in Daily reviews and are never rescheduled without writing.
+- The mistake notebook now stores each skill independently, including the exact conjugation form, a stable identity for each dictation sentence, and the individual comprehension question for a reading passage. **Retry this skill** opens that exercise. Correct meaning answers cannot clear a failed て-form. Old general-recall entries remain available and can be retried or removed explicitly.
+- Typed answer feedback highlights added/replaced characters and crosses out incorrect/extra characters. It chooses a close accepted written/kana representation. This is character-edit feedback, not automatic grammatical diagnosis, and does not change answer scoring.
+- Progress → **Progress by level & skill** separates N5–N1 vocabulary, conjugation, graded reading and listening/dictation. Recent accuracy uses ten answers; a trend requires twenty answers (two groups of ten). Up to five level-specific completed test scores are shown. Only the most recent 2,000 skill attempts are retained per learner. Existing cards, histories, profiles and backups still use `kanji-path-v1`; older backups gain an empty attempt history rather than invented skill scores.
+- Graded reading now includes **25 original CC0 passages**, five at each level. The 15 additions include dialogues, messages/notices and articles. `python -X utf8 scripts/expand-reading.py` refreshes these additions without replacing the original ten IDs. All passages include furigana, English translations, glossary entries and three comprehension questions. Levels remain unofficial estimates.
+- In a reading passage, **Read along & shadowing** plays one sentence or the whole passage, with speed controls and a current-sentence display. **Record yourself** requests microphone access only on tap. Recordings are kept as in-memory playback URLs for the current passage, never uploaded or included in backups. Clips are released when leaving the passage, changing learners or hiding the app. Recording stops after 30 seconds. There is no automatic pronunciation score. Recording requires HTTPS/localhost and a browser with MediaRecorder and microphone support; unsupported browsers can still listen and repeat.
+
+Offline cache version: `kanji-path-v13`, including all new modules and reading material. Tests cover exact-skill isolation, old/new backup validation, Unicode corrections, mixed scheduling and audio gates, passage quality, and microphone permission/race/cleanup cases using mocks rather than a real microphone.
+
+Phone CSS uses 16px ordinary text, controls at least 48px high, wrapping correction text, single-column progress cards and a one-column shadowing control layout at 320px. At 390/430px controls use two columns; coarse-pointer phone landscape retains bottom-navigation safe-area spacing. Existing writing controls and session confirmation are preserved.
+
+Rendered mobile QA was attempted but the Windows computer-use browser rejected inspection because URL-policy enforcement is unsupported. No screenshots or rendered 320/390/430px, landscape, or desktop verification are claimed. Remaining manual checks: view each new screen at those widths, verify there is no horizontal scrolling, test focus and the on-screen Japanese keyboard, allow/deny microphone access, compare playback and stop/leave/background the app while recording on a real phone.

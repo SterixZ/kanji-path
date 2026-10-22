@@ -31,8 +31,8 @@ test('conjugation uses known dictionary classes, filters levels and studied word
   for(const w of words.filter(w=>classes[w.id]))for(const form of Object.keys(CONJUGATION_FORMS))assert.ok(conjugate(w.reading,classes[w.id],form)[0],`${w.char} ${form}`);
 });
 test('graded passages cover all levels with complete furigana, useful glossaries and uniquely scored questions',()=>{
-  assert.equal(reading.length,10);assert.equal(new Set(reading.map(p=>p.id)).size,10);
-  for(const n of [5,4,3,2,1])assert.equal(reading.filter(p=>p.level===n).length,2);
+  assert.equal(reading.length,25);assert.equal(new Set(reading.map(p=>p.id)).size,25);
+  for(const n of [5,4,3,2,1])assert.equal(reading.filter(p=>p.level===n).length,5);
   for(const p of reading){
     assert.equal(p.license,'CC0-1.0');assert.ok(p.translation&&p.title);assert.ok(p.text.length>100);
     const tokens=furiganaTokens(p.text);assert.ok(!tokens.some(t=>!t.reading&&/\p{Script=Han}/u.test(t.text)),'unannotated kanji in '+p.id);
@@ -73,7 +73,7 @@ test('reading quiz saves scores once, retries misses, and isolates learners',()=
   page.setMode('reading');page.view();page.handleClick({languageAction:'start'});
   page.handleClick({languageChoice:'skip'});page.handleClick({languageChoice:'answer-0'});page.handleClick({languageAction:'next'});
   for(let n=0;n<2;n++){page.handleClick({languageChoice:'answer-0'});page.handleClick({languageAction:'next'})}
-  page.handleClick({languageAction:'next'});assert.equal(profile.tests.length,1);assert.equal(profile.tests[0].correct,2);assert.equal(saves,1);
+  page.handleClick({languageAction:'next'});assert.equal(profile.tests.length,1);assert.equal(profile.tests[0].correct,2);assert.equal(saves,4);assert.equal(profile.attempts.length,3);
   page.handleClick({languageAction:'retry'});page.handleClick({languageChoice:'answer-0'});page.handleClick({languageAction:'next'});assert.equal(profile.tests[1].correct,1);
   profile={id:'b',name:'B',cards:{},mistakes:{},tests:[]};assert.match(page.view(),/Choose a passage/);assert.deepEqual(profile.tests,[]);
 });

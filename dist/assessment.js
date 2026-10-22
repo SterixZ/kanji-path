@@ -1,5 +1,5 @@
 export const TEST_CATEGORIES={all:'All studied material',kanji:'Kanji',vocab:'Vocabulary',kana:'Kana',sentences:'Sentences',grammar:'Grammar'};
-export const TEST_LABELS={...TEST_CATEGORIES,conjugation:'Conjugation practice',reading:'Graded reading',dictation:'Sentence dictation'};
+export const TEST_LABELS={...TEST_CATEGORIES,mixed:'Daily mixed session',conjugation:'Conjugation practice',reading:'Graded reading',dictation:'Sentence dictation'};
 export const materialCategory=item=>!item.kind?'kanji':item.kind==='vocab'?'vocab':['hiragana','katakana'].includes(item.kind)?'kana':item.kind==='sentence'?'sentences':item.kind==='grammar'?'grammar':null;
 
 export function studiedMaterials(cards,items,{category='all',level='all',itemIds=null}={}){

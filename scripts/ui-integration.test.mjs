@@ -80,6 +80,11 @@ test('the app opens More, retains old progress, and connects navigation, dialogs
   assert.equal(cancelled,true);assert.equal(confirmation.open,false);assert.equal(modal.open,true,'Escape resumes the lesson');
   await click({action:'exit-session'});await click({action:'finish-session'});
   assert.equal(confirmation.open,false);assert.equal(modal.open,false);assert.ok(!classes.has('modal-open'));
+  await click({nav:'home'});assert.match(app.innerHTML,/data-daily-mixed/);
+  await click({dailyMixed:'true'});assert.equal(location.hash,'test');assert.match(app.innerHTML,/Daily mixed session/);
+  await click({languageAction:'exit'});
+  await click({nav:'progress'});assert.match(app.innerHTML,/Progress by level &amp; skill|Progress by level & skill/);
+  await click({progressLevel:'1'});assert.ok(app.innerHTML.includes('data-progress-level="1" aria-pressed="true"'));
   await click({nav:'test'});
   for(const mode of ['conjugation','reading','dictation','knowledge']){
     await click({testKind:mode});assert.ok(app.innerHTML.includes(`data-test-kind="${mode}" class="active"`),mode);
