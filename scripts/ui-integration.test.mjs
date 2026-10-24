@@ -29,7 +29,8 @@ test('the app opens More, retains old progress, and connects navigation, dialogs
   const card=schedule({},4,0),original={id:'original',name:'Existing learner',cards:{'flash:日':card},history:[],tests:[{at:1,total:3,correct:2,category:'reading',level:'5'}],mistakes:{},goal:10,created:1};
   const storage=new Map([['kanji-path-v1',JSON.stringify({version:1,active:'original',profiles:[original],lenient:true,speed:.8,voice:''})]]);
   globalThis.localStorage={getItem:key=>storage.get(key)||null,setItem:(key,value)=>storage.set(key,value)};
-  globalThis.fetch=async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile(new URL('../dist/'+String(url).replace(/^\.\//,''),import.meta.url),'utf8'))});
+  const requested=[];
+  globalThis.fetch=async url=>{requested.push(String(url));return {ok:true,json:async()=>JSON.parse(await fs.readFile(new URL('../dist/'+String(url).replace(/^\.\//,''),import.meta.url),'utf8'))}};
   await import('../dist/app.js');
   for(let attempt=0;attempt<100&&!app.innerHTML.includes('Study tools, progress, and settings.');attempt++)await new Promise(resolve=>setTimeout(resolve,5));
   assert.match(app.innerHTML,/Study tools, progress, and settings\./);
@@ -39,6 +40,15 @@ test('the app opens More, retains old progress, and connects navigation, dialogs
     assert.ok(app.innerHTML.includes(`<h1 tabindex="-1">${title.replaceAll('&','&amp;')}</h1>`),view);
     assert.equal(focused,'heading');
   }
+  await click({nav:'home'});
+  const featured=app.innerHTML.match(/class="ref-character" data-detail="([^"]+)"/);
+  assert.ok(featured,'featured character is a real explorer button');
+  await click({detail:featured[1]});assert.match(modal.innerHTML,/Character explorer/);await click({action:'close'});
+  const nextCollection=app.innerHTML.match(/data-start-course="([^"]+)"/);
+  assert.ok(nextCollection,'next collection has a working lesson action');
+  await click({startCourse:nextCollection[1]});assert.match(modal.innerHTML,/Guided lesson/);
+  await click({action:'exit-session'});await click({action:'finish-session'});
+  assert.ok(!app.innerHTML.includes('cloud-email-form'),'no account form is introduced');
   await click({nav:'library'});
   const kanji=JSON.parse(await fs.readFile(new URL('../dist/data/kanji.json',import.meta.url),'utf8'));
   assert.match(app.innerHTML,/aria-label="Kanji levels"/);
@@ -97,6 +107,7 @@ test('the app opens More, retains old progress, and connects navigation, dialogs
   assert.match(app.innerHTML,/Type what you heard/);assert.ok(!app.innerHTML.includes(window.lastSpeech.text),'transcript stays hidden before submission');
   await click({nav:'more'});
   const persisted=JSON.parse(storage.get('kanji-path-v1'));
+  assert.ok(requested.every(url=>url.startsWith('./data/')),'the app only loads bundled datasets and never contacts a database API');
   assert.equal(storage.size,1);assert.equal(persisted.active,original.id);assert.equal(persisted.profiles[0].name,original.name);
   assert.deepEqual(persisted.profiles[0].cards,original.cards);assert.deepEqual(persisted.profiles[0].tests,original.tests);assert.deepEqual(persisted.profiles[0].history,[]);
 });

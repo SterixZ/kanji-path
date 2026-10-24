@@ -1,11 +1,22 @@
 # Kanji Path
 
+## REF-inspired interface, no database required
+
+The current interface adapts Team 10 / Nookstep from the user's REF library: warm cream/sage surfaces, a focused study-entry panel, an actual next collection, and a clickable character study desk. Existing phone tabs, desktop sidebar and all Japanese learning tools remain connected to their current routes.
+
+Kanji Path stays entirely device-based: bundled learning data, `kanji-path-v1` learner progress, local backups and offline study. There are no accounts, database dependencies, cloud-save controls, API functions or Supabase configuration requirements. The unpublished backend preparation was removed at the user's request.
+
+[Reference selection and adaptation](docs/REFERENCE_ADAPTATION.md).
+
+Current offline cache: `kanji-path-v14`. Source ZIPs remain inside `artifacts/exports/` and include the reference documentation. `npm start`, `npm test` and `npm run deploy` continue to work without installing dependencies.
+
+
 ## Practical study interface
 
 - The Study screen shows due reviews and a daily progress bar, with direct lesson
   and collection actions. Collections use grouped rows, while the library keeps
-  character grids and readable vocabulary rows. Decorative banners and slogans
-  have been removed from the main screens.
+  character grids and readable vocabulary rows. The reference-inspired Study screen adds a functional character panel
+  and a next-collection action without decorative room or economy features.
 - Phones use Study, Reviews, Library, Tests and More bottom tabs with safe-area
   spacing. Learning path belongs to Study; Grammar, Mistakes, Progress and Settings
   belong to More. All previous hash routes remain valid, and `#more` is added.
@@ -287,3 +298,5 @@ Offline cache version: `kanji-path-v13`, including all new modules and reading m
 Phone CSS uses 16px ordinary text, controls at least 48px high, wrapping correction text, single-column progress cards and a one-column shadowing control layout at 320px. At 390/430px controls use two columns; coarse-pointer phone landscape retains bottom-navigation safe-area spacing. Existing writing controls and session confirmation are preserved.
 
 Rendered mobile QA was attempted but the Windows computer-use browser rejected inspection because URL-policy enforcement is unsupported. No screenshots or rendered 320/390/430px, landscape, or desktop verification are claimed. Remaining manual checks: view each new screen at those widths, verify there is no horizontal scrolling, test focus and the on-screen Japanese keyboard, allow/deny microphone access, compare playback and stop/leave/background the app while recording on a real phone.
+
+Rendered phone/desktop verification for this interface update is not claimed; the Windows browser tooling previously blocked inspection. Responsive rules were reviewed at 320, 390 and 430px and for coarse-pointer landscape. The full-app integration test opens the featured character and the suggested collection, verifies existing progress, and confirms no database API is called.
